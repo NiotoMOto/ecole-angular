@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+ <div class="panel-heading">Enfants / </div>
+</div>
+
+
+<nav class="navbar navbar-info" role="navigation">
+  <div class="container-fluid">
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="#/enfants/add">Ajout enfant</a></li>
+        </ul>
+        </div>
+  </div>
+</nav>
+
+<div class="panel-default">
+	<div class="col-md-12 panel " ng-repeat="enfant in enfants">
+		<div class="col-md-4">{{enfant.prenom}}</div>
+		<div class="col-md-4">{{enfant.nom}}</div>
+		<div class="col-md-2"><a class="btn btn-info" href="#/enfant/{{enfant.idEnfant}}">Détails</a></div>
+		<div class="col-md-2"><a class="btn btn-warning" ng-click="deleteEnfant(enfant)" >Suppression</a></div>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+ <div class="panel-heading"><a href="#/enfants/">Enfants</a> / Création</div>
+</div>
+<form ng-submit="addEnfant()" class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Ajout enfant</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="prenominput">Prénom</label>  
+  <div class="col-md-4">
+  <input id="prenominput" name="prenom" ng-model="formEnfant.prenom" type="text"  placeholder="Prénom" class="form-control input-md">
+  <span class="help-block"></span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nominput">Nom</label>  
+  <div class="col-md-4">
+  <input id="nominput" name="nom" ng-model="formEnfant.nom" type="text" placeholder="Nom" class="form-control input-md" >
+  <span class="help-block"></span>  
+  </div>
+</div>
+
+
+
+<!-- Select Basic -->
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton">Enregistrer</label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Enregistrer</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
