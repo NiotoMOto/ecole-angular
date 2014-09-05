@@ -2,4 +2,16 @@
 <div class="panel panel-default">
  <div class="panel-heading"><a href="#/enfants/">Enfants</a> / {{enfant.prenom}} {{enfant.nom}}</div>
 </div>
-
+<div>
+<div ng-repeat="responsableEnfant in responsableEnfants">
+	<a href="#/responsable/{{responsableEnfant.idresponsable.idresponsable}}">{{responsableEnfant.idresponsable.nom}}</a>
+</div>
+	<p>Responsable</p>
+	<form ng-submit="ajoutResponsableEnfant()">
+		<select class="form-control" ng-model="responsable" ng-options="responsable as responsable.nom for responsable in responsables">
+		</select>
+		<select class="form-control" ng-model="typeResponsable" ng-options="typeResponsable as typeResponsable.libelle for typeResponsable in typeResponsables">
+		</select>
+		<button type="submit" class="btn btn-primary" ng-click="">Ajouter responsable</button>
+	</form>
+</div>
