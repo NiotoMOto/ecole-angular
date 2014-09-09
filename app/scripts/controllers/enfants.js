@@ -9,15 +9,14 @@
  */
 angular.module('ecoleApp')
   .controller('EnfantsCtrl', function ($scope, enfantsService) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+ 
     $scope.deleteEnfant = function(enfant){
     	enfantsService.delete({id : enfant.idEnfant},function(){
     		$scope.enfants = enfantsService.query();
     	});
     };
     $scope.enfants = enfantsService.query();
+
   });
+
+

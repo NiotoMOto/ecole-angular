@@ -17,7 +17,18 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
+   // $httpProvider.interceptors.push('authInterceptor');
+   $httpProvider.defaults.withCredentials = true ;
+/*   $httpProvider.defaults.transformRequest = function(data){
+        if (data === undefined) {
+            return data;
+        }
+        return $.param(data);
+    }
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+    */
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
