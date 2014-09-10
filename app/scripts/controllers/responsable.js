@@ -9,11 +9,6 @@
  */
 angular.module('ecoleApp')
   .controller('ResponsableCtrl', function ($scope, $routeParams, responsableService) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
     var id = $routeParams.id ;
     $scope.responsable = responsableService.get({id : id});
   });

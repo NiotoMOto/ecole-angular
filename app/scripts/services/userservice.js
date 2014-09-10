@@ -13,18 +13,16 @@ angular.module('ecoleApp')
   		user : {
   			idUser : '1'
   		},
-  		login : function(){
-  			$http.post(
-  				'http://localhost:8084/ecole/login?username=antoine&password=antoine',
-  				{username : 'antoine', password : 'antoine'},
+  		login : function(user){
+  			return $http.post(
+  				'http://localhost:8084/ecole/login?username='+user.username+'&password='+user.password,
+  				  {},
   				 {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
-  				)
-  			.success(
-  				function(data){
-  					 $window.sessionStorage.token = data.JSESSIONID;
-  					 console.log("TOKEN : " + $cookieStore.get('JSESSIONID'));
-  				});
-  		}
+  				);
+  		},
+      logout : function(){
+        return $http.post("http://localhost:8084/ecole/logout");
+      }
     };
   });
   	

@@ -9,12 +9,6 @@
  */
 angular.module('ecoleApp')
   .controller('EnfantsAddCtrl', function ($scope, $location, enfantsService, userService) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
     $scope.addEnfant = function(){
     	$scope.formEnfant.userIdUser = userService.user ;
     	enfantsService.save(

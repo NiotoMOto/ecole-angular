@@ -18,17 +18,10 @@ angular
     'ngTouch'
   ])
   .config(function ($routeProvider, $httpProvider) {
-   // $httpProvider.interceptors.push('authInterceptor');
-   $httpProvider.defaults.withCredentials = true ;
-/*   $httpProvider.defaults.transformRequest = function(data){
-        if (data === undefined) {
-            return data;
-        }
-        return $.param(data);
-    }
-    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
-    */
+    $httpProvider.interceptors.push('authInterceptor');
+    $httpProvider.defaults.withCredentials = true ;
 
+    
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -61,6 +54,22 @@ angular
       .when('/responsable/:id', {
         templateUrl: 'views/responsable.html',
         controller: 'ResponsableCtrl'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/personnel/:id', {
+        templateUrl: 'views/personnel.html',
+        controller: 'PersonnelCtrl'
+      })
+      .when('/personnels', {
+        templateUrl: 'views/personnels.html',
+        controller: 'PersonnelsCtrl'
+      })
+      .when('/personnels/add', {
+        templateUrl: 'views/personnels/add.html',
+        controller: 'PersonnelsAddCtrl'
       })
       .otherwise({
         redirectTo: '/'

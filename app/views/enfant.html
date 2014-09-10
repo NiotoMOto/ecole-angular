@@ -3,10 +3,59 @@
  <div class="panel-heading"><a href="#/enfants/">Enfants</a> / {{enfant.prenom}} {{enfant.nom}}</div>
 </div>
 <div>
-<div ng-repeat="responsableEnfant in responsableEnfants">
+
+
+    <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Données personnelles</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Nom</td>
+                        <td>{{enfant.nom}}</td>
+                      </tr>
+                      <tr>
+                        <td>Prénom</td>
+                        <td>{{enfant.prenom}}</td>
+                      </tr>
+                   
+                         <tr>
+                             <tr>
+                        <td>Sexe</td>
+                        <td>Masculin</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+             
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                      
+                    </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Responsable</h3>
+            </div>
+      <div class="panel-body">
+              <div class="row">
+              <div ng-repeat="responsableEnfant in responsableEnfants">
 	<a href="#/responsable/{{responsableEnfant.idresponsable.idresponsable}}">{{responsableEnfant.idresponsable.nom}}</a>
 </div>
-	<p>Responsable</p>
+	
 	<form ng-submit="ajoutResponsableEnfant()">
 		<select class="form-control" ng-model="responsable" ng-options="responsable as responsable.nom for responsable in responsables">
 		</select>
@@ -15,3 +64,8 @@
 		<button type="submit" class="btn btn-primary" ng-click="">Ajouter responsable</button>
 	</form>
 </div>
+          </div>
+          </div>
+      </div>
+
+

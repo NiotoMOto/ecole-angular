@@ -9,12 +9,6 @@
  */
 angular.module('ecoleApp')
   .controller('ResponsablesAddCtrl', function ($scope, $location, responsableService) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
     $scope.addResponsable = function(){
 
     	responsableService.save(

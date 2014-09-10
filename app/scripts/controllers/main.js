@@ -8,11 +8,7 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-  .controller('MainCtrl', function ($scope, userService) {
-  	 userService.login();
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, userService, enfantsService) {
+  	$scope.enfants = enfantsService.query();
+
   });

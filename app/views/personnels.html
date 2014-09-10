@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+ <div class="panel-heading">personnels / </div>
+</div>
+
+<nav class="navbar navbar-info" role="navigation">
+  <div class="container-fluid">
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="#/personnels/add">Ajout personnel</a></li>
+        </ul>
+        </div>
+  </div>
+</nav>
+
+
+
+<div class="panel-default">
+	<div class="col-md-12 panel " ng-repeat="personnel in personnels">
+		<div class="col-md-4">{{personnel.prenom}}</div>
+		<div class="col-md-4">{{personnel.nom}}</div>
+		<div class="col-md-2"><a class="btn btn-info" href="#/personnel/{{personnel.idpersonnel}}">Détails</a></div>
+		<div class="col-md-2"><a class="btn btn-warning" ng-click="deletePersonnel(personnel)" >Suppression</a></div>
+	</div>
+</div>

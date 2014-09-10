@@ -9,11 +9,7 @@
  */
 angular.module('ecoleApp')
   .controller('EnfantCtrl', function ($scope, $routeParams, enfantsService, responsableService, typeResponsableService, responsableEnfantService) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
     var idEnfant = $routeParams.id;
     $scope.enfant = enfantsService.get({id : idEnfant});
     $scope.responsables = responsableService.query();
