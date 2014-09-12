@@ -10,7 +10,7 @@
 angular.module('ecoleApp')
     .controller('EnfantCtrl', function ($scope, $routeParams, enfantsService, responsableService, typeResponsableService, responsableEnfantService) {
         var idEnfant = $routeParams.id;
-        
+
         $scope.enfant = enfantsService.get({id: idEnfant});
         $scope.responsables = responsableService.query();
         $scope.typeResponsables = typeResponsableService.query();
@@ -18,7 +18,7 @@ angular.module('ecoleApp')
 
 
         $scope.updateEnfant = function () {
-            enfantsService.update({id: idEnfant}, $scope.enfant);
+            enfantsService.update($scope.enfant);
         }
 
 

@@ -32,11 +32,15 @@
                         <tbody>
                         <tr>
                             <td>Nom</td>
-                            <td>{{personnel.nom}}</td>
+                            <td>
+                             <span class="editField" field="personnel.nom" update-method="updatePersonnel()">{{personnel.nom}}</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Prénom</td>
-                            <td>{{personnel.prenom}}</td>
+                            <td>
+                                <span class="editField" field="personnel.prenom" update-method="updatePersonnel()">{{personnel.prenom}}</span>
+                            </td>
                         </tr>
 
                         <tr>
@@ -46,14 +50,24 @@
                         </tr>
                         <tr>
                             <td>Adresse</td>
-                            <td>{{personnel.adresse}} {{personnel.codePostale}} {{personnel.ville}}</td>
+                            <td>
+                                <span class="editField" field="personnel.adresse" update-method="updatePersonnel()">{{personnel.adresse}}</span>
+                                <span class="editField" field="personnel.codePostale" update-method="updatePersonnel()">{{personnel.codePostale}}</span>
+                                <span class="editField" field="personnel.ville" update-method="updatePersonnel()">{{personnel.ville}}</span>
+                            
+                            </td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td><a href="mailto:info@support.com">{{personnel.mail}}</a></td>
+                            <td>
+                                <a href="mailto:info@support.com">
+                                     <span class="editField" field="personnel.mail" update-method="updatePersonnel()">{{personnel.mail}}</span>
+                                </a>
+                            </td>
                         </tr>
                         <td>Phone Number</td>
-                        <td>{{personnel.telephone}}
+                        <td>
+                          <span class="editField" field="personnel.telephone" update-method="updatePersonnel()">{{personnel.telephone}}</span>
                         </td>
 
                         </tr>

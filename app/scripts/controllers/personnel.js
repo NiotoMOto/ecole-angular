@@ -11,4 +11,8 @@ angular.module('ecoleApp')
     .controller('PersonnelCtrl', function ($scope, $routeParams, personnelService) {
         var id = $routeParams.id;
         $scope.personnel = personnelService.get({id: id});
+
+        $scope.updatePersonnel = function(){
+        	personnelService.update($scope.personnel);
+        }
     });

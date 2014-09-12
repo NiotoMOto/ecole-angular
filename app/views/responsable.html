@@ -33,11 +33,13 @@
                         <tbody>
                         <tr>
                             <td>Nom</td>
-                            <td>{{responsable.nom}}</td>
+                            <td>
+<span class="editField" field="responsable.nom" update-method="updateResponsable()">{{responsable.nom}}</span>
+</td>
                         </tr>
                         <tr>
                             <td>Prénom</td>
-                            <td>{{responsable.prenom}}</td>
+                            <td><span class="editField" field="responsable.prenom" update-method="updateResponsable()">{{responsable.prenom}}</span></td>
                         </tr>
 
                         <tr>
@@ -47,7 +49,11 @@
                         </tr>
                         <tr>
                             <td>Adresse</td>
-                            <td>{{responsable.adresse}} {{responsable.codePostale}} {{responsable.ville}}</td>
+                            <td>
+                            <span class="editField" field="responsable.adresse" update-method="updateResponsable()">{{responsable.adresse}}</span>
+                            <span class="editField" field="responsable.codePostale" update-method="updateResponsable()">{{responsable.codePostale}}</span>
+                            <span class="editField" field="responsable.ville" update-method="updateResponsable()">{{responsable.ville}}</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>Email</td>

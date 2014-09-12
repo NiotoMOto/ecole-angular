@@ -9,5 +9,8 @@
  */
 angular.module('ecoleApp')
     .factory('responsableService', function responsableService($resource) {
-        return $resource('http://localhost:8084/ecole/responsable/:id', {id: '@id'});
+        return $resource('http://localhost:8084/ecole/responsable/:id', 
+        	{id: '@id'},
+        	{'update': { method: 'PUT' }}
+    	);
     });
