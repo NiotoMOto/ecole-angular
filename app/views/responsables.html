@@ -1,24 +1,24 @@
 <div class="panel panel-default">
- <div class="panel-heading">Responsables / </div>
+    <div class="panel-heading">Responsables /</div>
 </div>
 
 <nav class="navbar navbar-info" role="navigation">
-  <div class="container-fluid">
-     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class=""><a href="#/responsables/add">Ajout responsable</a></li>
-        </ul>
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="#/responsables/add">Ajout responsable</a></li>
+            </ul>
         </div>
-  </div>
+    </div>
 </nav>
 
 
-
 <div class="panel-default">
-	<div class="col-md-12 panel " ng-repeat="responsable in responsables">
-		<div class="col-md-4">{{responsable.prenom}}</div>
-		<div class="col-md-4">{{responsable.nom}}</div>
-		<div class="col-md-2"><a class="btn btn-info" href="#/responsable/{{responsable.idresponsable}}">Détails</a></div>
-		<div class="col-md-2"><a class="btn btn-warning" ng-click="deleteResponsable(responsable)" >Suppression</a></div>
-	</div>
+    <div class="col-md-12 panel " ng-repeat="responsable in responsables">
+        <div class="col-md-4">{{responsable.prenom}}</div>
+        <div class="col-md-4">{{responsable.nom}}</div>
+        <div class="col-md-2"><a class="btn btn-info" href="#/responsable/{{responsable.idresponsable}}">Détails</a>
+        </div>
+        <div class="col-md-2"><a class="btn btn-warning" ng-click="deleteResponsable(responsable)">Suppression</a></div>
+    </div>
 </div>

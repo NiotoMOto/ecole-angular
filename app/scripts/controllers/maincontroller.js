@@ -8,13 +8,13 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-  .controller('MaincontrollerCtrl', function ($scope, userService, $location) {
-  	function successLogout(){
-  		$location.path('login');
-  	};
+    .controller('MaincontrollerCtrl', function ($scope, userService, $location) {
+        function successLogout() {
+            $location.path('login');
+        };
 
-  	$scope.logout = function(){
-  		userService.logout()
-  		.success(successLogout);
-  	};
-  });
+        $scope.logout = function () {
+            userService.logout()
+                .success(successLogout);
+        };
+    });

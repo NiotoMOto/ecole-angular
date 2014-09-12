@@ -8,6 +8,6 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-  .controller('AboutCtrl', function ($scope, enfantsService) {
-    $scope.enfants = enfantsService.query();
-  });
+    .controller('AboutCtrl', function ($scope, enfantsService) {
+        $scope.enfants = enfantsService.query();
+    });

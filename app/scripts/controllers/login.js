@@ -8,22 +8,23 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-  .controller('LoginCtrl', function ($scope, userService, $location) {
-  	$scope.formLogin = {};
-  	$scope.errors = '';
+    .controller('LoginCtrl', function ($scope, userService, $location) {
+        $scope.formLogin = {};
+        $scope.errors = '';
 
-  	function successLogin(){
-  		$location.path("/main")
-  	}
-  	function errorLogin(){
-  		$scope.errors = 'Mauvais identifiants';
-  	}
+        function successLogin() {
+            $location.path("/main")
+        }
 
-  	$scope.login = function(user){
-  		$scope.errors = '';
-  		userService.login(user)
-  		.success(successLogin)
-  		.error(errorLogin);
-  	} 
+        function errorLogin() {
+            $scope.errors = 'Mauvais identifiants';
+        }
 
-  });
+        $scope.login = function (user) {
+            $scope.errors = '';
+            userService.login(user)
+                .success(successLogin)
+                .error(errorLogin);
+        }
+
+    });

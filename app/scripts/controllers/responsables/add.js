@@ -8,15 +8,15 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-  .controller('ResponsablesAddCtrl', function ($scope, $location, responsableService) {
-    $scope.addResponsable = function(){
+    .controller('ResponsablesAddCtrl', function ($scope, $location, responsableService) {
+        $scope.addResponsable = function () {
 
-    	responsableService.save(
-    		$scope.formResponsable,
-    		function(data){
-    			$location.path("responsables")
-    		})
-    }
+            responsableService.save(
+                $scope.formResponsable,
+                function (data) {
+                    $location.path("responsables")
+                })
+        }
 
-    
-  });
+
+    });

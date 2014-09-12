@@ -8,7 +8,7 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-  .controller('ResponsableCtrl', function ($scope, $routeParams, responsableService) {
-    var id = $routeParams.id ;
-    $scope.responsable = responsableService.get({id : id});
-  });
+    .controller('ResponsableCtrl', function ($scope, $routeParams, responsableService) {
+        var id = $routeParams.id;
+        $scope.responsable = responsableService.get({id: id});
+    });
