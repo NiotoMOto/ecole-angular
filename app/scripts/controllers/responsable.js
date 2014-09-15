@@ -14,5 +14,5 @@ angular.module('ecoleApp')
 
            $scope.updateResponsable = function () {
             responsableService.update($scope.responsable);
-        }
+        };
     });

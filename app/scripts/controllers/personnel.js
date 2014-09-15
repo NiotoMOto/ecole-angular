@@ -14,5 +14,5 @@ angular.module('ecoleApp')
 
         $scope.updatePersonnel = function(){
         	personnelService.update($scope.personnel);
-        }
+        };
     });

@@ -20,9 +20,9 @@ angular.module('ecoleApp')
         $scope.deleteResponsable = function (responsable) {
             responsableService.delete(
                 {id: responsable.idresponsable},
-                function (data) {
+                function () {
                     $scope.responsables = responsableService.query();
-                })
+                });
 
-        }
+        };
     });

@@ -8,8 +8,8 @@
  * Service in the ecoleApp.
  */
 angular.module('ecoleApp')
-    .factory('personnelService', function personnelService($resource) {
-        return $resource('http://localhost:8084/ecole/personnel/:id', 
+    .factory('personnelService', function personnelService($resource, apiService) {
+        return $resource(apiService.url + '/personnel/:id', 
         	{id: '@id'},
 	    	{'update': { method: 'PUT' }}
     	);

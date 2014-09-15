@@ -9,9 +9,9 @@
  * Service in the ecoleApp.
  */
 angular.module('ecoleApp')
-    .factory('enfantsService', function enfantsService($resource) {
+    .factory('enfantsService', function enfantsService($resource, apiService) {
         // AngularJS will instantiate a singleton by calling "new" on this function
-        return $resource('http://localhost:8084/ecole/enfant/:id', {id: '@id'},
+        return $resource(apiService.url + '/enfant/:id', {id: '@id'},
             {
                 'update': { method: 'PUT' }
             }

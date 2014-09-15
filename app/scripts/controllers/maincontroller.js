@@ -11,7 +11,7 @@ angular.module('ecoleApp')
     .controller('MaincontrollerCtrl', function ($scope, userService, $location) {
         function successLogout() {
             $location.path('login');
-        };
+        }
 
         $scope.logout = function () {
             userService.logout()

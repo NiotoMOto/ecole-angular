@@ -18,5 +18,5 @@ angular.module('ecoleApp')
                     $scope.personnels = personnelService.query();
                 }
             );
-        }
+        };
     });

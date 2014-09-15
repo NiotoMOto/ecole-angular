@@ -19,7 +19,7 @@ angular.module('ecoleApp')
 
         $scope.updateEnfant = function () {
             enfantsService.update($scope.enfant);
-        }
+        };
 
 
         $scope.ajoutResponsableEnfant = function () {
@@ -29,9 +29,9 @@ angular.module('ecoleApp')
             responsableEnfant.idtypeResponsable = $scope.typeResponsable;
             responsableEnfantService.save(
                 responsableEnfant,
-                function (retour) {
+                function () {
                     $scope.responsableEnfants = responsableEnfantService.query();
                 }
-            )
-        }
+            );
+        };
     });

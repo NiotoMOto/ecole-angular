@@ -8,6 +8,6 @@
  * Service in the ecoleApp.
  */
 angular.module('ecoleApp')
-    .factory('responsableEnfantService', function responsableEnfantService($resource) {
-        return $resource('http://localhost:8084/ecole/responsableEnfant/:id', {id: '@id'});
+    .factory('responsableEnfantService', function responsableEnfantService($resource, apiService) {
+        return $resource(apiService.url + '/responsableEnfant/:id', {id: '@id'});
     });

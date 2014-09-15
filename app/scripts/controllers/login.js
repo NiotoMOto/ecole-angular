@@ -13,7 +13,7 @@ angular.module('ecoleApp')
         $scope.errors = '';
 
         function successLogin() {
-            $location.path("/main")
+            $location.path('/main');
         }
 
         function errorLogin() {
@@ -25,6 +25,6 @@ angular.module('ecoleApp')
             userService.login(user)
                 .success(successLogin)
                 .error(errorLogin);
-        }
+        };
 
     });

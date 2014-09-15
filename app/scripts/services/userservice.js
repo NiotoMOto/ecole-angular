@@ -8,20 +8,20 @@
  * Service in the ecoleApp.
  */
 angular.module('ecoleApp')
-    .factory('userService', function userService($http, $window, $cookies, $cookieStore) {
+    .factory('userService', function userService($http, $window, $cookies, $cookieStore, apiService) {
         return{
             user: {
                 idUser: '1'
             },
             login: function (user) {
                 return $http.post(
-                        'http://localhost:8084/ecole/login?username=' + user.username + '&password=' + user.password,
+                        apiService.url + '/login?username=' + user.username + '&password=' + user.password,
                     {},
                     {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
                 );
             },
             logout: function () {
-                return $http.post("http://localhost:8084/ecole/logout");
+                return $http.post(apiService.url + '/logout');
             }
         };
     });
