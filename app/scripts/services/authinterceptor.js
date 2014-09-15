@@ -26,7 +26,7 @@ angular.module('ecoleApp')
                 if (rejection.status === 401) {
                     $location.path('/login').search('returnTo', $location.path());
                 }else{
-                     $location.path('/login').search('returnTo', $location.path());
+                     $location.path('/404').search('returnTo', $location.path());
                 }
                 return $q.reject(rejection);
             }

@@ -12,7 +12,7 @@ angular.module('ecoleApp')
         var id = $routeParams.id;
         $scope.personnel = personnelService.get({id: id});
 
-        $scope.updatePersonnel = function(){
-        	personnelService.update($scope.personnel);
+        $scope.updatePersonnel = function () {
+            personnelService.update($scope.personnel);
         };
     });

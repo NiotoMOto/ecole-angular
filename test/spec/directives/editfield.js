@@ -12,9 +12,5 @@ describe('Directive: editField', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<edit-field></edit-field>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the editField directive');
-  }));
+ 
 });

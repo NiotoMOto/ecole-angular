@@ -10,5 +10,4 @@
 angular.module('ecoleApp')
     .controller('MainCtrl', function ($scope, userService, enfantsService) {
         $scope.enfants = enfantsService.query();
-
     });
