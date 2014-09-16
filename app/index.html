@@ -9,36 +9,54 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
+    <link rel="stylesheet" href="bower_components/bootswatch/cosmo/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
-
     <!-- endbuild -->
 </head>
 <body ng-app="ecoleApp" ng-controller="MaincontrollerCtrl">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
-<![endif]-->
+    <![endif]-->
 
-<!-- Add your site or application content here -->
-<div class="container">
-    <div class="header ">
-        <ul class="nav nav-pills pull-right">
-            <li class="active"><a ng-href="#">Home</a></li>
-            <li><a ng-href="#/enfants">Enfants</a></li>
-            <li><a ng-href="#/responsables">Responsables</a></li>
-            <li><a ng-href="#/personnels">Personnels</a></li>
-            <li><a href="" ng-click="logout()">Déconnexion</a></li>
-        </ul>
-        <h3 class="text-muted">ecole</h3>
-    </div>
+    <!-- Add your site or application content here -->
+    <div class="container">
+        <div class="header ">
+            <ul class="nav nav-pills pull-right">
+                <li ng-class="{active : isActive(['/enfants', '/enfants/add'])}" class="dropdown">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown">Enfants <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                      <li ng-class="{active : isActive(['/enfants'])}"><a ng-href="#/enfants">Liste</a></li>
+                      <li ng-class="{active : isActive(['/enfants/add'])}"><a ng-href="#/enfants/add">Création</a></li>
+                  </ul>
+              </li>
+              <li ng-class="{active : isActive(['/personnels', '/personnels/add'])}" class="dropdown">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown">Personnels <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                      <li ng-class="{active : isActive(['/personnels'])}"><a ng-href="#/personnels">Liste</a></li>
+                      <li ng-class="{active : isActive(['/personnels/add'])}"><a ng-href="#/personnels/add">Création</a></li>
+                  </ul>
+              </li>
+              <li ng-class="{active : isActive(['/responsables', '/responsables/add'])}" class="dropdown">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown">Responsables <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                      <li ng-class="{active : isActive(['/responsables'])}"><a ng-href="#/responsables">Liste</a></li>
+                      <li ng-class="{active : isActive(['/responsables/add'])}"><a ng-href="#/responsables/add">Création</a></li>
+                  </ul>
+              </li>
+            
+              <li><a href="" ng-click="logout()">Déconnexion</a></li>
+          </ul>
+          <h3 class="text-muted">ecole</h3>
+      </div>
 
-    <div ng-view=""></div>
+      <div ng-view=""></div>
 
-    <div class="footer">
+      <div class="footer">
         <p>Ecole levinas inc</p>
     </div>
 </div>
@@ -52,7 +70,7 @@
             (i[r].q = i[r].q || []).push(arguments)
         }, i[r].l = 1 * new Date();
         a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
+        m = s.getElementsByTagName(o)[0];
         a.async = 1;
         a.src = g;
         m.parentNode.insertBefore(a, m)
@@ -81,8 +99,8 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
 <!-- endbower -->
-<script src="bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
