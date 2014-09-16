@@ -1,6 +1,6 @@
-<div class="panel panel-default">
-    <div class="panel-heading">Enfants /</div>
-</div>
+<ul class="breadcrumb">
+  <li class="active">Enfants</li>
+</ul>
 
 
 <nav class="navbar navbar-info" role="navigation">
@@ -13,11 +13,23 @@
     </div>
 </nav>
 
-<div class="panel-default">
-    <div class="col-md-12 panel " ng-repeat="enfant in enfants">
-        <div class="col-md-4">{{enfant.prenom}}</div>
-        <div class="col-md-4">{{enfant.nom}}</div>
-        <div class="col-md-2"><a class="btn btn-info" href="#/enfant/{{enfant.idEnfant}}">Détails</a></div>
-        <div class="col-md-2"><a class="btn btn-warning" ng-click="deleteEnfant(enfant)">Suppression</a></div>
-    </div>
-</div>
+<table class="table">
+    <thead>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tr ng-repeat="enfant in enfants.items" >
+        <td>{{enfant.prenom}}</td>
+        <td>{{enfant.nom}}</td>
+        <td>
+           <a class="btn btn-info" href="#/enfant/{{enfant.idEnfant}}">Détails</a> 
+       </td>
+       <td>
+       <a class="btn btn-danger" ng-click="deleteEnfant(enfant)">Suppression</a>
+    </td>
+</tr>
+</table>
+
+

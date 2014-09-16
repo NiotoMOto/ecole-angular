@@ -6,13 +6,13 @@
  * @description
  * # showErrorApp
  */
-angular.module('ecoleApp')
-  .directive('showErrorApp', function () {
-    return {
-      template: '<div></div>',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the showErrorApp directive');
-      }
-    };
-  });
+ angular.module('ecoleApp')
+ .directive('showErrorApp', function () {
+ 	return {
+ 		template: '<div></div>',
+ 		restrict: 'E',
+ 		link: function postLink(scope, element, attrs) {
+ 			element.text('this is the showErrorApp directive');
+ 		}
+ 	};
+ });

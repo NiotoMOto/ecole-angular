@@ -36,7 +36,8 @@ angular
             })
             .when('/enfants', {
                 templateUrl: 'views/enfants.html',
-                controller: 'EnfantsCtrl'
+                controller: 'EnfantsCtrl',
+                active : 'enfants'
             })
             .when('/enfant/:id', {
                 templateUrl: 'views/enfant.html',

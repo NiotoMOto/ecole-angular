@@ -10,6 +10,7 @@
 angular.module('ecoleApp')
   .factory('apiService', function apiService() {
     return{
-    	url : 'http://localhost:8080/ecole'
+    	url : 'http://srv.elgis.fr:8080/ecole'
+    	//url : 'http://localhost:8084/ecole'
     };
   });

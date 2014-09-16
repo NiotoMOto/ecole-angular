@@ -1,6 +1,7 @@
-<div class="panel panel-default">
-    <div class="panel-heading">personnels /</div>
-</div>
+
+<ul class="breadcrumb">
+    <li class="active">personnels</li>
+</ul>
 
 <nav class="navbar navbar-info" role="navigation">
     <div class="container-fluid">
@@ -13,11 +14,26 @@
 </nav>
 
 
-<div class="panel-default">
-    <div class="col-md-12 panel " ng-repeat="personnel in personnels">
-        <div class="col-md-4">{{personnel.prenom}}</div>
-        <div class="col-md-4">{{personnel.nom}}</div>
-        <div class="col-md-2"><a class="btn btn-info" href="#/personnel/{{personnel.idpersonnel}}">Détails</a></div>
-        <div class="col-md-2"><a class="btn btn-warning" ng-click="deletePersonnel(personnel)">Suppression</a></div>
-    </div>
-</div>
+
+<table class="table">
+    <thead>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tr ng-repeat="personnel in personnels" >
+        <td>
+            {{personnel.prenom}}
+        </td>
+        <td>
+            {{personnel.nom}}
+        </td>
+        <td>
+            <a class="btn btn-info" href="#/personnel/{{personnel.idpersonnel}}">Détails</a> 
+        </td>
+        <td>
+            <a class="btn btn-danger" ng-click="deletePersonnel(personnel)">Suppression</a>
+        </td>
+    </tr>
+</table>

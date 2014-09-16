@@ -11,11 +11,12 @@ angular.module('ecoleApp')
     .controller('EnfantCtrl', function ($scope, $routeParams, enfantsService, responsableService, typeResponsableService, responsableEnfantService) {
         var idEnfant = $routeParams.id;
 
-        $scope.enfant = enfantsService.get({id: idEnfant});
-        $scope.responsables = responsableService.query();
-        $scope.typeResponsables = typeResponsableService.query();
-        $scope.responsableEnfants = responsableEnfantService.query();
-
+        $scope.init = function(){
+            $scope.enfant = enfantsService.get({id: idEnfant});
+            $scope.responsables = responsableService.query();
+            $scope.typeResponsables = typeResponsableService.query();
+            $scope.responsableEnfants = responsableEnfantService.query();
+        }
 
         $scope.updateEnfant = function () {
             enfantsService.update($scope.enfant);
@@ -34,4 +35,6 @@ angular.module('ecoleApp')
                 }
             );
         };
+
+        $scope.init();
     });
