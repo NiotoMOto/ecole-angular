@@ -9,8 +9,13 @@
  */
 angular.module('ecoleApp')
     .factory('personnelService', function personnelService($resource, apiService) {
-        return $resource(apiService.url + '/personnel/:id', 
-        	{id: '@id'},
+        return $resource(apiService.url + '/personnel/:id?page=:page&rpp=:rpp&search=:search', 
+        	 {
+        		id: '@id',
+        		page: '@page',
+        		rpp: '@rpp',
+                search: '@search'
+    		},
 	    	{'update': { method: 'PUT' }}
     	);
     });

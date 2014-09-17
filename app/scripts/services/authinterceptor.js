@@ -15,7 +15,6 @@ angular.module('ecoleApp')
                 return config;
             },
             response: function (response) {
-                console.log('response : ' + response.status);
                 if (response.status === 401) {
                     // handle the case where the user is not authenticated
                     $location.path('/');

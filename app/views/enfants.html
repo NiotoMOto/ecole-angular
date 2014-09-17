@@ -13,6 +13,13 @@
     </div>
 </nav>
 
+<form ng-submit="recherche()">
+  <input class="form-control" ng-model="search" placeholder="Recherche"></input>
+</form>
+
+<pagination total-items="pagination.totalItems" ng-change="pageChanged()" items-per-page="pagination.rpp" ng-model="pagination.currentPage"></pagination>
+
+<p class="text-center">{{pagination.totalItems}} résultats</p>
 <table class="table">
     <thead>
         <th>Prénom</th>
@@ -31,5 +38,7 @@
     </td>
 </tr>
 </table>
+
+<pagination total-items="pagination.totalItems" ng-change="pageChanged()" items-per-page="pagination.rpp" ng-model="currentPage"></pagination>
 
 
