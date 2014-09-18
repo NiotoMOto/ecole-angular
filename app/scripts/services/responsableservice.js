@@ -16,6 +16,9 @@ angular.module('ecoleApp')
         		rpp: '@rpp',
                 search: '@search'
     		},
-        	{'update': { method: 'PUT' }}
+        	{
+                'update': { method: 'PUT' },
+                'query': { method: 'GET', isArray: false }
+            }
     	);
     });

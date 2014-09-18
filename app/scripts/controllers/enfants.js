@@ -15,7 +15,6 @@
  	};
 
  	$scope.pageChanged = function() {
-
  		getEntants () ;
  	};
 
@@ -28,7 +27,6 @@
  	}
 
  	$scope.recherche = function () {
- 		console.log($scope.search);
  		getEntants();
  	}
 
