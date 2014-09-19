@@ -13,7 +13,7 @@ angular.module('ecoleApp')
 
         $scope.init = function(){
             $scope.enfant = enfantsService.get({id: idEnfant});
-            $scope.responsables = responsableService.query();
+            $scope.responsables = responsableService.query({all : "true"});
             $scope.typeResponsables = typeResponsableService.query();
             $scope.responsableEnfants = responsableEnfantService.query();
         }

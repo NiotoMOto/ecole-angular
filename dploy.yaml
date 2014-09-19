@@ -1,0 +1,10 @@
+dev:
+    scheme: sftp
+    host: srv.elgis.fr
+    port: 22
+    user: root
+    pass: elg1024
+    check: true
+    path:
+        local: dist/
+        remote: /var/www/ecole/

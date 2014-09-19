@@ -12,7 +12,14 @@ angular.module('ecoleApp')
         $scope.formLogin = {};
         $scope.errors = '';
 
-        function successLogin() {
+        userService.user = {};
+        userService.isLogged = false ;
+
+        function successLogin(user) {
+            userService.isLogged = true ;
+            userService.getUser().success(function(user){
+                userService.user = user ;
+            });
             $location.path('/main');
         }
 

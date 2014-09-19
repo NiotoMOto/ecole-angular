@@ -60,12 +60,15 @@
     <div class="panel-body">
         <div class="row">
             <div ng-repeat="responsableEnfant in responsableEnfants">
-                <a href="#/responsable/{{responsableEnfant.idresponsable.idresponsable}}">{{responsableEnfant.idresponsable.nom}}</a>
+                <a href="#/responsable/{{responsableEnfant.idresponsable.idresponsable}}">
+                    {{responsableEnfant.idresponsable.nom}}
+                    {{responsableEnfant.idresponsable.prenom}}
+                </a>
             </div>
 
             <form ng-submit="ajoutResponsableEnfant()">
                 <select class="form-control" ng-model="responsable"
-                        ng-options="responsable as responsable.nom for responsable in responsables">
+                        ng-options="responsable as responsable.prenom for responsable in responsables.items">
                 </select>
                 <select class="form-control" ng-model="typeResponsable"
                         ng-options="typeResponsable as typeResponsable.libelle for typeResponsable in typeResponsables">

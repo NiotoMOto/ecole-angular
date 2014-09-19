@@ -8,7 +8,7 @@
  * Controller of the ecoleApp
  */
  angular.module('ecoleApp')
- .controller('EnfantsCtrl', function ($scope, enfantsService, $filter) {
+ .controller('EnfantsCtrl', function ($scope, $rootScope, enfantsService, $filter, notificationservice) {
 
  	$scope.setPage = function (pageNo) {
  		$scope.currentPage = pageNo;
@@ -29,10 +29,13 @@
  	$scope.recherche = function () {
  		getEntants();
  	}
+ 		
+
 
  	$scope.deleteEnfant = function (enfant) {
  		enfantsService.delete({id: enfant.idEnfant}, function () {
  			getEntants ();
+ 			notificationservice.add("Suppression enfant", "warning");
  		});
  	};
 

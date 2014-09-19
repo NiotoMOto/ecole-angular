@@ -10,18 +10,22 @@
 angular.module('ecoleApp')
     .factory('userService', function userService($http, $window, $cookies, $cookieStore, apiService) {
         return{
-            user: {
-                idUser: '1'
-            },
+            user: {},
+            isLogged : false ,
             login: function (user) {
                 return $http.post(
                         apiService.url + '/login?username=' + user.username + '&password=' + user.password,
                     {},
                     {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
                 );
+                 this.isLogged = true ;
             },
             logout: function () {
+                this.isLogged = false ;
                 return $http.post(apiService.url + '/logout');
+            },
+            getUser: function(){
+                 return $http.get(apiService.url + '/loginUser');
             }
         };
     });

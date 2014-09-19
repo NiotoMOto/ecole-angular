@@ -13,12 +13,17 @@
 </nav>
 
 <form ng-submit="recherche()">
-  <input class="form-control" ng-model="search" placeholder="Recherche"></input>
+   <div class="input-group">
+    <input class="form-control" ng-model="search" placeholder="Recherche"></input>
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="submit">Recherche</button>
+  </span>
+</div>
 </form>
 
 <pagination total-items="pagination.totalItems" ng-change="pageChanged()" items-per-page="pagination.rpp" ng-model="pagination.currentPage"></pagination>
-
-<table class="table">
+<p class="text-center">{{pagination.totalItems}} résultats</p>
+<table class="table table-responsive">
     <thead>
         <th>Prénom</th>
         <th>Nom</th>
@@ -36,7 +41,7 @@
             <a class="btn btn-info" href="#/responsable/{{responsable.idresponsable}}">Détails</a> 
         </td>
         <td>
-        <a class="btn btn-danger" ng-click="deleteResponsable(responsable)">Suppression</a>
+            <a class="btn btn-danger" ng-click="deleteResponsable(responsable)">Suppression</a>
         </td>
     </tr>
 </table>

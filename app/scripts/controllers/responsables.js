@@ -8,7 +8,7 @@
  * Controller of the ecoleApp
  */
  angular.module('ecoleApp')
- .controller('ResponsablesCtrl', function ($scope, responsableService) {
+ .controller('ResponsablesCtrl', function ($scope, responsableService, notificationservice) {
 
 
     $scope.setPage = function (pageNo) {
@@ -36,6 +36,7 @@
             {id: responsable.idresponsable},
             function () {
                 getResponsables();
+                notificationservice.add("Suppression responsable", "warning");
             });
 
     };

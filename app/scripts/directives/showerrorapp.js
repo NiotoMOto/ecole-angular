@@ -7,12 +7,21 @@
  * # showErrorApp
  */
  angular.module('ecoleApp')
- .directive('showErrorApp', function () {
+ .directive('showErrorApp', function ($rootScope) {
  	return {
- 		template: '<div></div>',
+ 		templateUrl: 'views/template/notification.html',
  		restrict: 'E',
+ 		scope : {
+ 			messsage : '=',
+ 			messages : '=messages',
+ 			removenotif : '&'
+ 		},
  		link: function postLink(scope, element, attrs) {
- 			element.text('this is the showErrorApp directive');
+ 			scope.removeNotif = function(message){
+ 				scope.removenotif(message);
+ 			}
  		}
  	};
  });
+
+ 

@@ -8,7 +8,7 @@
  * Controller of the ecoleApp
  */
  angular.module('ecoleApp')
- .controller('PersonnelsCtrl', function ($scope, personnelService) {
+ .controller('PersonnelsCtrl', function ($scope, personnelService, notificationservice ) {
 
     $scope.init = function(){
         $scope.pagination = {}; 
@@ -36,6 +36,7 @@
             {id: personnel.idpersonnel},
             function () {
                 getPersonnels();
+                notificationservice.add("Suppression personnel", "warning");
             }
             );
     };

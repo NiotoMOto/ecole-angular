@@ -1,0 +1,4 @@
+<div ng-repeat="message in messages track by $index" class="alert alert-dismissable alert-{{message.type}}">
+	<button type="button" ng-click="removeNotif($index)" class="close" >×</button>
+	{{message.text}}
+</div>

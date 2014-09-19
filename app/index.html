@@ -1,23 +1,25 @@
 <!doctype html>
 <html class="no-js">
 <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
-    <link rel="stylesheet" href="bower_components/bootswatch/cosmo/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
+  <link rel="stylesheet" href="bower_components/bootswatch/cosmo/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
 </head>
 <body ng-app="ecoleApp" ng-controller="MaincontrollerCtrl">
+
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -25,62 +27,64 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-        <div class="header ">
-            <ul class="nav nav-pills pull-right">
-                <li ng-class="{active : isActive(['/enfants', '/enfants/add'])}" class="dropdown">
-                  <a href="" class="dropdown-toggle" >Enfants <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                      <li ng-class="{active : isActive(['/enfants'])}"><a ng-href="#/enfants">Liste</a></li>
-                      <li ng-class="{active : isActive(['/enfants/add'])}"><a ng-href="#/enfants/add">Création</a></li>
-                  </ul>
-              </li>
-              <li ng-class="{active : isActive(['/personnels', '/personnels/add'])}" class="dropdown">
-                  <a href="" class="dropdown-toggle" >Personnels <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                      <li ng-class="{active : isActive(['/personnels'])}"><a ng-href="#/personnels">Liste</a></li>
-                      <li ng-class="{active : isActive(['/personnels/add'])}"><a ng-href="#/personnels/add">Création</a></li>
-                  </ul>
-              </li>
-              <li ng-class="{active : isActive(['/responsables', '/responsables/add'])}" class="dropdown">
-                  <a href="" class="dropdown-toggle" >Responsables <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                      <li ng-class="{active : isActive(['/responsables'])}"><a ng-href="#/responsables">Liste</a></li>
-                      <li ng-class="{active : isActive(['/responsables/add'])}"><a ng-href="#/responsables/add">Création</a></li>
-                  </ul>
-              </li>
-            
-              <li><a href="" ng-click="logout()">Déconnexion</a></li>
-          </ul>
-          <h3 class="text-muted">ecole</h3>
+      <div ng-if="userService.isLogged"  class="header ">
+        <ul class="nav nav-pills pull-right">
+          <li ng-class="{active : isActive(['/enfants', '/enfants/add'])}" class="dropdown">
+            <a href="" class="dropdown-toggle" >Enfants <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li ng-class="{active : isActive(['/enfants'])}"><a ng-href="#/enfants">Liste</a></li>
+              <li ng-class="{active : isActive(['/enfants/add'])}"><a ng-href="#/enfants/add">Création</a></li>
+            </ul>
+          </li>
+          <li ng-class="{active : isActive(['/personnels', '/personnels/add'])}" class="dropdown">
+            <a href="" class="dropdown-toggle" >Personnels <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li ng-class="{active : isActive(['/personnels'])}"><a ng-href="#/personnels">Liste</a></li>
+              <li ng-class="{active : isActive(['/personnels/add'])}"><a ng-href="#/personnels/add">Création</a></li>
+            </ul>
+          </li>
+          <li ng-class="{active : isActive(['/responsables', '/responsables/add'])}" class="dropdown">
+            <a href="" class="dropdown-toggle" >Responsables <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li ng-class="{active : isActive(['/responsables'])}"><a ng-href="#/responsables">Liste</a></li>
+              <li ng-class="{active : isActive(['/responsables/add'])}"><a ng-href="#/responsables/add">Création</a></li>
+            </ul>
+          </li>
+          
+          <li><a href="" ng-click="logout()">Déconnexion</a></li>
+        </ul>
+        <h3 class="text-muted">ecole</h3>
       </div>
 
-      <div ng-view=""></div>
+      <div id="notif-zone">
+        <show-error-app messages="notificationservice.getMessages()" removenotif="notificationservice.remove(message)"></show-error-app>
+      </div>
+      <div  ng-view=""></div>
 
       <div class="footer">
         <p>Ecole levinas inc</p>
+      </div>
     </div>
-</div>
 
-
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-<script>
-    (function (i, s, o, g, r, a, m) {
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
+          (i[r].q = i[r].q || []).push(arguments)
         }, i[r].l = 1 * new Date();
         a = s.createElement(o),
         m = s.getElementsByTagName(o)[0];
         a.async = 1;
         a.src = g;
         m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
-</script>
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
+    </script>
 
-<!-- build:js(.) scripts/oldieshim.js -->
+    <!-- build:js(.) scripts/oldieshim.js -->
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -129,6 +133,7 @@
 <script src="scripts/directives/editfield.js"></script>
 <script src="scripts/services/apiservice.js"></script>
 <script src="scripts/directives/showerrorapp.js"></script>
+<script src="scripts/services/notificationservice.js"></script>
 <!-- endbuild -->
 </body>
 </html>
