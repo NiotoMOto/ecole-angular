@@ -16,7 +16,7 @@
 
             <div class="col-md-4">
                 <input id="prenominput" name="prenom" ng-model="formEnfant.prenom" type="text" placeholder="Prénom"
-                       class="form-control input-md">
+                class="form-control input-md">
                 <span class="help-block"></span>
             </div>
         </div>
@@ -27,22 +27,125 @@
 
             <div class="col-md-4">
                 <input id="nominput" name="nom" ng-model="formEnfant.nom" type="text" placeholder="Nom"
-                       class="form-control input-md">
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+        <label class="col-md-4 control-label" for="birthdayinput">Date de naissance</label>
+
+            <div class="col-md-4">
+             <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup="dd-MMMM-yy" datepicker-mode="year" ng-model="formEnfant.birthday" is-open="opened" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+         </span>
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="adresseinput">Adresse</label>
+
+            <div class="col-md-4">
+                <input id="adresseinput" name="adresse" ng-model="formEnfant.adresse" type="text" placeholder="adresse"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="villeinput">Ville</label>
+
+            <div class="col-md-4">
+                <input id="villeinput" name="ville" ng-model="formEnfant.ville" type="text" placeholder="Ville"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="codePostalinput">CodePostal</label>
+
+            <div class="col-md-4">
+                <input id="codePostalinput" name="codePostal" ng-model="formEnfant.codePostal" type="text" placeholder="codePostal"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="aptitudesinput">aptitudes</label>
+
+            <div class="col-md-4">
+                <input id="aptitudesinput" name="aptitudes" ng-model="formEnfant.aptitudes" type="text" placeholder="aptitudes"
+                class="form-control input-md">
                 <span class="help-block"></span>
             </div>
         </div>
 
 
-        <!-- Select Basic -->
 
-        <!-- Button -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="singlebutton">Enregistrer</label>
+            <label class="col-md-4 control-label" for="secuSocialeinput">N° Sécu. Sociale</label>
 
             <div class="col-md-4">
-                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Enregistrer</button>
+                <input id="secuSocialeinput" name="secuSociale" ng-model="formEnfant.secuSociale" type="text" placeholder="N° Sécu. Sociale"
+                class="form-control input-md">
+                <span class="help-block"></span>
             </div>
         </div>
 
-    </fieldset>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="assuranceScolaireinput">Bénéficie d'une assurance scolaire ?</label>
+            <div class="col-md-4">
+              <input type="radio" ng-model="formEnfant.assuranceScolaire" ng-value="true"> Oui <br/>
+              <input type="radio" ng-model="formEnfant.assuranceScolaire" ng-value="false"> Nom <br/>
+              <span class="help-block"></span>
+          </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="difficultesinput">Difficultées</label>
+
+        <div class="col-md-4">
+            <textarea id="difficultesinput" name="difficultes" ng-model="formEnfant.difficultes" placeholder="difficultes"  class="form-control input-md"></textarea>
+
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="problemeSanteinput">Problèmes de santé</label>
+        <div class="col-md-4">
+            <textarea id="problemeSanteinput" name="problemeSante" ng-model="formEnfant.problemeSante" placeholder="Problèmes de santé"
+            class="form-control input-md"></textarea>
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="commentairesinput">Commentaires</label>
+        <div class="col-md-4">
+            <textarea id="commentairesinput" name="commentaires" ng-model="formEnfant.commentaires" placeholder="commentaires"
+            class="form-control input-md"></textarea>
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="singlebutton">Enregistrer</label>
+
+        <div class="col-md-4">
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary">Enregistrer</button>
+        </div>
+    </div>
+
+</fieldset>
 </form>

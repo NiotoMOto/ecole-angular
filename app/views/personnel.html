@@ -20,60 +20,68 @@
           </div>
 
           <div class=" col-md-9 col-lg-9 ">
-            <table class="table table-user-information">
+            <table ng-if="dataLoaded" class="table table-user-information">
               <tbody>
                 <tr>
                   <td>Nom</td>
                   <td>
-                   <span class="editField" field="personnel.nom" update-method="updatePersonnel()">{{personnel.nom}}</span>
+                   <span class="editField" field="personnel.nom" update-method="updatePersonnel()">{{personnel.nom || 'vide'}}</span>
                  </td>
                </tr>
                <tr>
                 <td>Prénom</td>
                 <td>
-                  <span class="editField" field="personnel.prenom" update-method="updatePersonnel()">{{personnel.prenom}}</span>
+                  <span class="editField" field="personnel.prenom" update-method="updatePersonnel()">{{personnel.prenom || 'vide'}}</span>
                 </td>
               </tr>
 
               <tr>
-                <tr>
-                  <td>Gender</td>
-                  <td>Male</td>
-                </tr>
-                <tr>
-                  <td>Adresse</td>
-                  <td>
-                    <span class="editField" field="personnel.adresse" update-method="updatePersonnel()">{{personnel.adresse}}</span>
-                    <span class="editField" field="personnel.codePostale" update-method="updatePersonnel()">{{personnel.codePostale}}</span>
-                    <span class="editField" field="personnel.ville" update-method="updatePersonnel()">{{personnel.ville}}</span>
+                <td>Gender</td>
+                <td>Male</td>
+              </tr>
 
-                  </td>
-                </tr>
-                <tr>
-                  <td>Email</td>
-                  <td>
-                    <a href="mailto:info@support.com">
-                     <span class="editField" field="personnel.mail" update-method="updatePersonnel()">{{personnel.mail}}</span>
-                   </a>
-                 </td>
-               </tr>
-               <td>Phone Number</td>
-               <td>
-                <span class="editField" field="personnel.telephone" update-method="updatePersonnel()">{{personnel.telephone}}</span>
-              </td>
+              <tr>
+              <td>Fonction</td>
+                <td>
+                  <span class="editField" field="personnel.fonction" update-method="updatePersonnel()">{{personnel.fonction || 'vide'}}</span>
+                </td>
+              </tr>
 
-            </tr>
+              <tr>
+                <td>Adresse</td>
+                <td>
+                  <span class="editField" field="personnel.adresse" update-method="updatePersonnel()">{{personnel.adresse || 'vide'}}</span>
+                  <span class="editField" field="personnel.codepostal" update-method="updatePersonnel()">{{personnel.codepostal || 'vide'}}</span>
+                  <span class="editField" field="personnel.ville" update-method="updatePersonnel()">{{personnel.ville || 'vide'}}</span>
 
-          </tbody>
-        </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>
+                 <span class="editField" field="personnel.email" update-method="updatePersonnel()">{{personnel.email || 'vide'}}</span>
+                 <a href="mailto:{{personnel.email}}" class="pull-right" ><span class="glyphicon glyphicon-envelope"></span></a>
+               </td>
+             </tr>
+             <tr>
+             <td>Téléphone fixe</td>
+             <td>
+              <span class="editField" field="personnel.telFixe" update-method="updatePersonnel()">{{personnel.telFixe || 'vide'}}</span> 
+              <a href="tel:{{personnel.telFixe}}" class="pull-right"><span class=" glyphicon glyphicon-earphone"></span></a>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
 
 
-      </div>
     </div>
   </div>
-  <div class="panel-footer">
+</div>
+<div class="panel-footer">
 
-  </div>
+</div>
 
 </div>
 </div>

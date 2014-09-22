@@ -12,42 +12,94 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center">
-                <img alt="User Pic"
+                    <img alt="User Pic"
                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
                     class="img-circle">
-               </div>
+                </div>
                 <div class=" col-md-9 col-lg-9 ">
-                    <table class="table table-user-information">
+                    <table ng-if="dataLoaded" class="table table-user-information">
                         <tbody>
-                        <tr>
-                            <td>Nom</td>
-                            <td>
-                                <span  class="editField"  field="enfant.nom" update-method="updateEnfant()">{{enfant.nom}}</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Prénom</td>
-                            <td><span class="editField" field="enfant.prenom"
-                                      update-method="updateEnfant()">{{enfant.prenom}}</span></td>
-                        </tr>
+                            <tr>
+                                <td>Nom</td>
+                                <td>
+                                    <span  class="editField"  field="enfant.nom" update-method="updateEnfant()">{{enfant.nom || 'vide'}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Prénom</td>
+                                <td><span class="editField" field="enfant.prenom"
+                                  update-method="updateEnfant()">{{enfant.prenom || 'vide'}}</span></td>
+                              </tr>
 
-                        <tr>
+                              <tr>
+                                <td>Date de naissance</td>
+                                <td><span class="editField" field="enfant.birthday"
+                                  update-method="updateEnfant()">{{enfant.birthday || 'vide'}}.</span></td>
+                              </tr>
+
+                              <tr>
+                                  <td>Adresse</td>
+                                  <td><span class="editField" field="enfant.adresse"
+                                      update-method="updateEnfant()">{{enfant.adresse || 'vide'}}</span>
+                                      <span class="editField" field="enfant.codePostal"
+                                      update-method="updateEnfant()">{{enfant.codePostal || 'vide'}}</span>
+                                      <span class="editField" field="enfant.ville"
+                                      update-method="updateEnfant()">{{enfant.ville || 'vide'}}</span>
+                                  </td>
+                              </tr>
+                              <tr>
+                               <td>Numéro de sécurité sociale</td>
+                               <td><span class="editField" field="enfant.secuSociale"
+                                  update-method="updateEnfant()">{{enfant.secuSociale || 'vide'}}</span>
+                              </td>
+                          </tr>
+
+                          <tr>
+                           <td>Aptitudes</td>
+                           <td><span class="editField" edit-type="textarea" field="enfant.aptitudes"
+                              update-method="updateEnfant()">{{enfant.aptitudes || 'vide'}}</span>
+                          </td>
+                      </tr>
+
+                                  <tr>
+                           <td>Difficultées</td>
+                           <td><span class="editField" edit-type="textarea" field="enfant.difficultes"
+                              update-method="updateEnfant()">{{enfant.difficultes || 'vide'}}</span>
+                          </td>
+                      </tr>
+
+                                  <tr>
+                           <td>Commentaires</td>
+                           <td><span class="editField" edit-type="textarea" field="enfant.commentaires"
+                              update-method="updateEnfant()">{{enfant.commentaires || 'vide'}}</span>
+                          </td>
+                      </tr>
+
+                                  <tr>
+                           <td>Problèmes de santé</td>
+                           <td><span class="editField" edit-type="textarea" field="enfant.problemeSante"
+                              update-method="updateEnfant()">{{enfant.problemeSante || 'vide'}}</span>
+                          </td>
+                      </tr>
+
+                      
+                      <tr>
                         <tr>
                             <td>Sexe</td>
                             <td>Masculin</td>
                         </tr>
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
 
 
-                </div>
             </div>
         </div>
-        <div class="panel-footer">
-
-        </div>
+    </div>
+    <div class="panel-footer">
 
     </div>
+
+</div>
 </div>
 </div>
 </div>
@@ -68,15 +120,15 @@
 
             <form ng-submit="ajoutResponsableEnfant()">
                 <select class="form-control" ng-model="responsable"
-                        ng-options="responsable as responsable.prenom for responsable in responsables.items">
-                </select>
-                <select class="form-control" ng-model="typeResponsable"
-                        ng-options="typeResponsable as typeResponsable.libelle for typeResponsable in typeResponsables">
-                </select>
-                <button type="submit" class="btn btn-primary" ng-click="">Ajouter responsable</button>
-            </form>
-        </div>
-    </div>
+                ng-options="responsable as responsable.prenom for responsable in responsables.items">
+            </select>
+            <select class="form-control" ng-model="typeResponsable"
+            ng-options="typeResponsable as typeResponsable.libelle for typeResponsable in typeResponsables">
+        </select>
+        <button type="submit" class="btn btn-primary" ng-click="">Ajouter responsable</button>
+    </form>
+</div>
+</div>
 </div>
 </div>
 

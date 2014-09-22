@@ -10,9 +10,12 @@
 angular.module('ecoleApp')
     .controller('EnfantCtrl', function ($scope, $routeParams, enfantsService, responsableService, typeResponsableService, responsableEnfantService) {
         var idEnfant = $routeParams.id;
-
+        $scope.dataLoaded = false ;
         $scope.init = function(){
             $scope.enfant = enfantsService.get({id: idEnfant});
+            $scope.enfant.$promise.then(function(){
+                $scope.dataLoaded = true ;
+            })
             $scope.responsables = responsableService.query({all : "true"});
             $scope.typeResponsables = typeResponsableService.query();
             $scope.responsableEnfants = responsableEnfantService.query();

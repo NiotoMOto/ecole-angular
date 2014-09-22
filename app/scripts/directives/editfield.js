@@ -6,28 +6,44 @@
  * @description
  * # editField
  */
-angular.module('ecoleApp')
-    .directive('editField', function () {
-        return {
-            restrict: 'C',
-            scope: {
-                field: '=',
-                updateMethod: '&'
-            },
-            link: function postLink(scope, element) {
-                scope.$watch('field', function (newval, oldvalue) {
-                    if (newval != oldvalue) {
-                        element.editable({
-                        value: scope.field,
-                        success: function (response, nvValue) {
-                            scope.$apply(function () {
-                                scope.field = nvValue;   
-                            });
-                            scope.updateMethod();   
-                        }
-                     });
+ angular.module('ecoleApp')
+ .directive('editField', function ($filter) {
+    return {
+        restrict: 'C',
+        scope: {
+            field: '=',
+            updateMethod: '&',
+            type: '@editType'
+        },
+        link: function postLink(scope, element) {
+            var type = scope.type || 'text' ;
+            var value = scope.field || '' ;
+           element.editable({
+            text : 'EMPTY',
+            value: value,
+            type: type,
+            success: function (response, nvValue) {
+                scope.$apply(function () {
+                    scope.field = nvValue;   
+                });
+                scope.updateMethod();   
+            }
+        });
+
+           scope.$watch('field', function (newval, oldvalue) {
+            if (newval != oldvalue) {
+                var value = scope.field;
+                element.editable({
+                    value: value,
+                    success: function (response, nvValue) {
+                        scope.$apply(function () {
+                            scope.field = nvValue;   
+                        });
+                        scope.updateMethod();   
                     }
                 });
             }
-    };
+        });
+       }
+   };
 });
