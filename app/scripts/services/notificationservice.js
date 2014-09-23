@@ -18,6 +18,7 @@
  			notification.push(message);
  		},
  		remove : function (index) {
+ 			console.log(index);
  			notification.splice(index, 1);
  		},
  		getMessages : function (argument) {

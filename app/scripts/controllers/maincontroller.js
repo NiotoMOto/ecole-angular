@@ -13,6 +13,7 @@
  	$scope.notificationservice = notificationservice ;
  	$scope.isLogged = userService.isLogged ;
  	$scope.userService = userService ;
+ 	
  	function successLogout() {
  		$location.path('login');
  	}

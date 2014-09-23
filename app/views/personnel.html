@@ -36,12 +36,7 @@
               </tr>
 
               <tr>
-                <td>Gender</td>
-                <td>Male</td>
-              </tr>
-
-              <tr>
-              <td>Fonction</td>
+                <td>Fonction</td>
                 <td>
                   <span class="editField" field="personnel.fonction" update-method="updatePersonnel()">{{personnel.fonction || 'vide'}}</span>
                 </td>
@@ -63,25 +58,33 @@
                  <a href="mailto:{{personnel.email}}" class="pull-right" ><span class="glyphicon glyphicon-envelope"></span></a>
                </td>
              </tr>
+
              <tr>
-             <td>Téléphone fixe</td>
-             <td>
-              <span class="editField" field="personnel.telFixe" update-method="updatePersonnel()">{{personnel.telFixe || 'vide'}}</span> 
-              <a href="tel:{{personnel.telFixe}}" class="pull-right"><span class=" glyphicon glyphicon-earphone"></span></a>
-            </td>
+               <td>Téléphone fixe</td>
+               <td>
+                <span class="editField" field="personnel.telFixe" update-method="updatePersonnel()">{{personnel.telFixe || 'vide'}}</span> 
+                <a href="tel:{{personnel.telFixe}}" class="pull-right"><span class=" glyphicon glyphicon-earphone"></span></a>
+                </td>
+            </tr>
 
-          </tr>
+              <tr>
+               <td>Téléphone portable</td>
+               <td>
+                <span class="editField" field="personnel.telMobile" update-method="updatePersonnel()">{{personnel.telMobile || 'vide'}}</span> 
+                <a href="tel:{{personnel.telMobile}}" class="pull-right"><span class=" glyphicon glyphicon-earphone"></span></a>
+                </td>
+            </tr>
 
-        </tbody>
-      </table>
+          </tbody>
+        </table>
 
 
+      </div>
     </div>
   </div>
-</div>
-<div class="panel-footer">
+  <div class="panel-footer">
 
-</div>
+  </div>
 
 </div>
 </div>

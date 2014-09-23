@@ -1,0 +1,107 @@
+<form ng-submit="addResponsable(formResponsable)" class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Ajout Responsable</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="prenominput">Prénom</label>
+
+            <div class="col-md-4">
+                <input id="prenominput" name="prenom" ng-model="formResponsable.prenom" type="text" placeholder="prénom"
+                class="form-control input-md<>">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="nominput">Nom</label>
+
+            <div class="col-md-4">
+                <input id="nominput" name="nom" ng-model="formResponsable.nom" type="text" placeholder="nom"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="adresseinput">Adresse</label>
+
+            <div class="col-md-4">
+                <input id="adresseinput" name="adresse" ng-model="formResponsable.adresse" type="text" placeholder="adresse"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="codePostalinput">Code postal</label>
+
+            <div class="col-md-4">
+                <input id="codePostalinput" name="codePostal" ng-model="formResponsable.codePostale" type="text"
+                placeholder="code postal" class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="villeinput">Ville</label>
+            <div class="col-md-4">
+                <input id="villeinput" name="ville" ng-model="formResponsable.ville" type="text" placeholder="ville"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="emailinput">Email</label>
+            <div class="col-md-4">
+                <input id="nominput" name="email" ng-model="formResponsable.email" type="text" placeholder="email"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+        <label class="col-md-4 control-label" for="telFixeinput">Téléphone fixe</label>
+            <div class="col-md-4">
+                <input id="nominput" name="telFixe" ng-model="formResponsable.telFixe" type="text" placeholder="téléphone fixe"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="telPortinput">Téléphone portable</label>
+            <div class="col-md-4">
+                <input id="nominput" name="telPort" ng-model="formResponsable.telPort" type="text" placeholder="téléphone portable"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="professioninput">Profession</label>
+            <div class="col-md-4">
+                <input id="nominput" name="profession" ng-model="formResponsable.profession" type="text" placeholder="profession"
+                class="form-control input-md">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+
+        <!-- Select Basic -->
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="singlebutton">Enregistrer</label>
+
+            <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>

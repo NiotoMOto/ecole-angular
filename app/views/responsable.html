@@ -1,20 +1,20 @@
  <ul class="breadcrumb">
-    <li><a href="#/responsables/">Responsables</a></li>
-    <li class="active">{{responsable.prenom}} {{responsable.nom}}</li>
-  </ul>
+  <li><a href="#/responsables/">Responsables</a></li>
+  <li class="active">{{responsable.prenom}} {{responsable.nom}}</li>
+</ul>
 
 <div class=" ">
 
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{responsable.prenom}} {{responsable.nom}}</h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic"
-                                                                    src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
-                                                                    class="img-circle"></div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{responsable.prenom}} {{responsable.nom}}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic"
+          src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+          class="img-circle"></div>
 
                 <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
@@ -29,56 +29,69 @@
                   </dl>
                 </div>-->
                 <div class=" col-md-9 col-lg-9 ">
-                    <table class="table table-user-information">
-                        <tbody>
-                        <tr>
-                            <td>Nom</td>
-                            <td>
-<span class="editField" field="responsable.nom" update-method="updateResponsable()">{{responsable.nom}}</span>
-</td>
-                        </tr>
-                        <tr>
-                            <td>Prénom</td>
-                            <td><span class="editField" field="responsable.prenom" update-method="updateResponsable()">{{responsable.prenom}}</span></td>
-                        </tr>
-
-                        <tr>
-                        <tr>
-                            <td>Gender</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>Adresse</td>
-                            <td>
-                            <span class="editField" field="responsable.adresse" update-method="updateResponsable()">{{responsable.adresse}}</span>
-                            <span class="editField" field="responsable.codePostale" update-method="updateResponsable()">{{responsable.codePostale}}</span>
-                            <span class="editField" field="responsable.ville" update-method="updateResponsable()">{{responsable.ville}}</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><a href="mailto:info@support.com">{{responsable.mail}}</a></td>
-                        </tr>
-                        <td>Phone Number</td>
-                        <td>{{responsable.telephone}}
+                  <table ng-if="dataLoaded" class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Nom</td>
+                        <td>
+                          <span class="editField" field="responsable.nom" update-method="updateResponsable()">{{responsable.nom || 'vide'}}</span>
                         </td>
+                      </tr>
+                      <tr>
+                        <td>Prénom</td>
+                        <td><span class="editField" field="responsable.prenom" update-method="updateResponsable()">{{responsable.prenom || 'vide'}}</span></td>
+                      </tr>                     
+                      <tr>
+                        <td>Adresse</td>
+                        <td>
+                          <span class="editField" field="responsable.adresse" update-method="updateResponsable()">{{responsable.adresse || 'vide'}}</span>
+                          <span class="editField" field="responsable.codePostale" update-method="updateResponsable()">{{responsable.codePostale || 'vide'}}</span>
+                          <span class="editField" field="responsable.ville" update-method="updateResponsable()">{{responsable.ville || 'vide'}}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td>
+                         <span class="editField" field="responsable.email" update-method="updateResponsable()">{{responsable.email || 'vide'}}</span>
+                         <a href="mailto:{{responsable.email}}" class="pull-right" ><span class="glyphicon glyphicon-envelope"></span></a>
+                       </td>
+                     </tr>
+                     <tr>
+                       <td>Téléphone fixe</td>
+                       <td>
+                         <span class="editField" field="responsable.telFixe" update-method="updateResponsable()">{{responsable.telFixe || 'vide'}}</span>
+                         <a href="tel:{{responsable.telFixe}}" class="pull-right"><span class=" glyphicon glyphicon-earphone"></span></a>
+                       </td>
+                     </tr>
+                     <tr>
+                       <td>Téléphone protable</td>
+                       <td>
+                         <span class="editField" field="responsable.telPort" update-method="updateResponsable()">{{responsable.telPort || 'vide'}}</span>
+                         <a href="tel:{{responsable.telPort}}" class="pull-right"><span class=" glyphicon glyphicon-earphone"></span></a>
+                       </td>
+                     </tr>
 
-                        </tr>
+                     <tr>
+                       <td>Profession</td>
+                       <td>
+                         <span class="editField" field="responsable.profession" update-method="updateResponsable()">{{responsable.profession || 'vide'}}</span>
+                       </td>
+                     </tr>
 
-                        </tbody>
-                    </table>
+                   </tbody>
+                 </table>
 
 
-                </div>
-            </div>
-        </div>
-        <div class="panel-footer">
+               </div>
+             </div>
+           </div>
+           <div class="panel-footer">
 
-        </div>
+           </div>
 
-    </div>
-</div>
-</div>
-</div>
+         </div>
+       </div>
+     </div>
+   </div>
 
 

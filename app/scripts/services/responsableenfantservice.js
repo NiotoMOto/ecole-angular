@@ -7,7 +7,12 @@
  * # responsableEnfantService
  * Service in the ecoleApp.
  */
-angular.module('ecoleApp')
-    .factory('responsableEnfantService', function responsableEnfantService($resource, apiService) {
-        return $resource(apiService.url + '/responsableEnfant/:id', {id: '@id'});
-    });
+ angular.module('ecoleApp')
+ .factory('responsableEnfantService', function responsableEnfantService($resource, apiService) {
+ 	return $resource(apiService.url + '/responsableEnfant/:id?byEnfant=:byEnfant', 
+ 	{
+ 		id: '@id',
+ 		byEnfant: '@byEnfant'
+ 	}
+ 	);
+ });

@@ -5,99 +5,99 @@
 
 <div>
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">Données personnelles</h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center">
-                    <img alt="User Pic"
-                    src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
-                    class="img-circle">
-                </div>
-                <div class=" col-md-9 col-lg-9 ">
-                    <table ng-if="dataLoaded" class="table table-user-information">
-                        <tbody>
-                            <tr>
-                                <td>Nom</td>
-                                <td>
-                                    <span  class="editField"  field="enfant.nom" update-method="updateEnfant()">{{enfant.nom || 'vide'}}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Prénom</td>
-                                <td><span class="editField" field="enfant.prenom"
-                                  update-method="updateEnfant()">{{enfant.prenom || 'vide'}}</span></td>
-                              </tr>
-
-                              <tr>
-                                <td>Date de naissance</td>
-                                <td><span class="editField" field="enfant.birthday"
-                                  update-method="updateEnfant()">{{enfant.birthday || 'vide'}}.</span></td>
-                              </tr>
-
-                              <tr>
-                                  <td>Adresse</td>
-                                  <td><span class="editField" field="enfant.adresse"
-                                      update-method="updateEnfant()">{{enfant.adresse || 'vide'}}</span>
-                                      <span class="editField" field="enfant.codePostal"
-                                      update-method="updateEnfant()">{{enfant.codePostal || 'vide'}}</span>
-                                      <span class="editField" field="enfant.ville"
-                                      update-method="updateEnfant()">{{enfant.ville || 'vide'}}</span>
-                                  </td>
-                              </tr>
-                              <tr>
-                               <td>Numéro de sécurité sociale</td>
-                               <td><span class="editField" field="enfant.secuSociale"
-                                  update-method="updateEnfant()">{{enfant.secuSociale || 'vide'}}</span>
-                              </td>
-                          </tr>
-
-                          <tr>
-                           <td>Aptitudes</td>
-                           <td><span class="editField" edit-type="textarea" field="enfant.aptitudes"
-                              update-method="updateEnfant()">{{enfant.aptitudes || 'vide'}}</span>
-                          </td>
-                      </tr>
-
-                                  <tr>
-                           <td>Difficultées</td>
-                           <td><span class="editField" edit-type="textarea" field="enfant.difficultes"
-                              update-method="updateEnfant()">{{enfant.difficultes || 'vide'}}</span>
-                          </td>
-                      </tr>
-
-                                  <tr>
-                           <td>Commentaires</td>
-                           <td><span class="editField" edit-type="textarea" field="enfant.commentaires"
-                              update-method="updateEnfant()">{{enfant.commentaires || 'vide'}}</span>
-                          </td>
-                      </tr>
-
-                                  <tr>
-                           <td>Problèmes de santé</td>
-                           <td><span class="editField" edit-type="textarea" field="enfant.problemeSante"
-                              update-method="updateEnfant()">{{enfant.problemeSante || 'vide'}}</span>
-                          </td>
-                      </tr>
-
-                      
-                      <tr>
-                        <tr>
-                            <td>Sexe</td>
-                            <td>Masculin</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-
-            </div>
-        </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Données personnelles</h3>
     </div>
-    <div class="panel-footer">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3 col-lg-3 " align="center">
+          <img alt="User Pic"
+          src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+          class="img-circle">
+        </div>
+        <div class=" col-md-9 col-lg-9 ">
+          <table ng-if="dataLoaded" class="table table-user-information">
+            <tbody>
+              <tr>
+                <td>Nom</td>
+                <td>
+                  <span  class="editField"  field="enfant.nom" update-method="updateEnfant()">{{enfant.nom || 'vide'}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Prénom</td>
+                <td><span class="editField" field="enfant.prenom"
+                  update-method="updateEnfant()">{{enfant.prenom || 'vide'}}</span></td>
+                </tr>
+
+                <tr>
+                  <td>Date de naissance</td>
+                  <td><span class="editField" field="enfant.birthday"
+                    update-method="updateEnfant()">{{enfant.birthday || 'vide'}}.</span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Adresse</td>
+                    <td><span class="editField" field="enfant.adresse"
+                      update-method="updateEnfant()">{{enfant.adresse || 'vide'}}</span>
+                      <span class="editField" field="enfant.codePostal"
+                      update-method="updateEnfant()">{{enfant.codePostal || 'vide'}}</span>
+                      <span class="editField" field="enfant.ville"
+                      update-method="updateEnfant()">{{enfant.ville || 'vide'}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                   <td>Numéro de sécurité sociale</td>
+                   <td><span class="editField" field="enfant.secuSociale"
+                    update-method="updateEnfant()">{{enfant.secuSociale || 'vide'}}</span>
+                  </td>
+                </tr>
+
+                <tr>
+                 <td>Aptitudes</td>
+                 <td><span class="editField" edit-type="textarea" field="enfant.aptitudes"
+                  update-method="updateEnfant()">{{enfant.aptitudes || 'vide'}}</span>
+                </td>
+              </tr>
+
+              <tr>
+               <td>Difficultées</td>
+               <td><span class="editField" edit-type="textarea" field="enfant.difficultes"
+                update-method="updateEnfant()">{{enfant.difficultes || 'vide'}}</span>
+              </td>
+            </tr>
+
+            <tr>
+             <td>Commentaires</td>
+             <td><span class="editField" edit-type="textarea" field="enfant.commentaires"
+              update-method="updateEnfant()">{{enfant.commentaires || 'vide'}}</span>
+            </td>
+          </tr>
+
+          <tr>
+           <td>Problèmes de santé</td>
+           <td><span class="editField" edit-type="textarea" field="enfant.problemeSante"
+            update-method="updateEnfant()">{{enfant.problemeSante || 'vide'}}</span>
+          </td>
+        </tr>
+
+
+        <tr>
+          <tr>
+            <td>Sexe</td>
+            <td>Masculin</td>
+          </tr>
+        </tbody>
+      </table>
+
 
     </div>
+  </div>
+</div>
+<div class="panel-footer">
+
+</div>
 
 </div>
 </div>
@@ -106,29 +106,67 @@
 
 
 <div class="panel panel-info">
-    <div class="panel-heading">
-        <h3 class="panel-title">Responsable</h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div ng-repeat="responsableEnfant in responsableEnfants">
-                <a href="#/responsable/{{responsableEnfant.idresponsable.idresponsable}}">
-                    {{responsableEnfant.idresponsable.nom}}
-                    {{responsableEnfant.idresponsable.prenom}}
-                </a>
-            </div>
+  <div class="panel-heading">
+    <h3 class="panel-title">Responsable</h3>
+  </div>
+  <div class="panel-body">
 
-            <form ng-submit="ajoutResponsableEnfant()">
-                <select class="form-control" ng-model="responsable"
-                ng-options="responsable as responsable.prenom for responsable in responsables.items">
-            </select>
-            <select class="form-control" ng-model="typeResponsable"
-            ng-options="typeResponsable as typeResponsable.libelle for typeResponsable in typeResponsables">
-        </select>
-        <button type="submit" class="btn btn-primary" ng-click="">Ajouter responsable</button>
-    </form>
+    <div class="row">
+      <div class="col-md-6" ng-repeat="responsableEnfant in responsableEnfants">
+        <div class="panel panel-default">
+          <div class="panel-heading"> 
+           {{responsableEnfant.idresponsable.nom}} {{responsableEnfant.idresponsable.prenom}} -  {{responsableEnfant.idtypeResponsable.libelle}} 
+           <div class="pull-right">
+             <a href="#/responsable/{{responsableEnfant.idresponsable.idresponsable}}"><span class="glyphicon glyphicon-share"></span></a>
+           </div>
+         </div>
+         <div class="panel-body">
+          <div>
+            {{responsableEnfant.idresponsable.email}}
+            <a ng-if="responsableEnfant.idresponsable.email" href="mailto:{{presponsableEnfant.idresponsable.email}}" class="pull-right" ><span class="glyphicon glyphicon-envelope"></span></a>
+          </div>
+          <div>  
+           {{responsableEnfant.idresponsable.telFixe}}
+           <a ng-if="responsableEnfant.idresponsable.telFixe" href="tel:{{responsableEnfant.idresponsable.telFixe}}" class="pull-right"><span class=" glyphicon glyphicon-earphone"></span></a>
+         </div>
+
+         <div>
+          {{responsableEnfant.idresponsable.telPort}}
+          <a ng-if="responsableEnfant.idresponsable.telPort" href="tel:{{responsableEnfant.idresponsable.telPort}}" class="pull-right"><span class=" glyphicon glyphicon-earphone"></span></a>
+
+        </div>
+          <div class="pull-right">
+          <br>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" >
+                Action
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation">  <a class="btn" ng-click="deleteResponsableEnfant(responsableEnfant)"><span class="glyphicon glyphicon-trash"></span></a></li>
+                <li role="presentation" class="text-center">    <a href="#/responsable/{{responsableEnfant.idresponsable.idresponsable}}">Détails </a></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
-</div>
+
+<button class="btn btn-primary" type="button" ng-click="openResponsableModal()" >Création responsable</button>
+<form ng-submit="ajoutResponsableEnfant()">
+  <select class="form-control" ng-model="responsable"
+  ng-options="responsable as responsable.prenom for responsable in responsables.items">
+</select>
+<select class="form-control" ng-model="typeResponsable"
+ng-options="typeResponsable as typeResponsable.libelle for typeResponsable in typeResponsables">
+</select>
+<button type="submit" class="btn btn-primary" ng-click="">Ajouter responsable</button>
+
+</form>
+
+
 </div>
 </div>
 

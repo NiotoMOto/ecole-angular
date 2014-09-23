@@ -13,12 +13,11 @@
  		restrict: 'E',
  		scope : {
  			messsage : '=',
- 			messages : '=messages',
- 			removenotif : '&'
+ 			messages : '=messages'
  		},
  		link: function postLink(scope, element, attrs) {
- 			scope.removeNotif = function(message){
- 				scope.removenotif(message);
+ 			scope.removeNotif = function(index){
+ 				scope.messages.splice(index,1);
  			}
  		}
  	};

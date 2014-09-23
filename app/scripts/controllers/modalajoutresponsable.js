@@ -2,21 +2,20 @@
 
 /**
  * @ngdoc function
- * @name ecoleApp.controller:ResponsablesAddCtrl
+ * @name ecoleApp.controller:ModalajoutresponsableCtrl
  * @description
- * # ResponsablesAddCtrl
+ * # ModalajoutresponsableCtrl
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-    .controller('ResponsablesAddCtrl', function ($scope, $location, responsableService, notificationservice) {
-        $scope.addResponsable = function (formResponsable) {
+  .controller('ModalajoutresponsableCtrl', function ($scope, responsableService, notificationservice, $modalInstance) {
+  	        $scope.addResponsable = function (formResponsable) {
             responsableService.save(
                 formResponsable,
                 function (data) {
-                    $location.path("responsables")
                     notificationservice.add("Ajout personnel" + data.prenom + " " + data.nom, "success");
+                    $modalInstance.close();
                 })
         }
 
-
-    });
+  });

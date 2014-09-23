@@ -251,6 +251,25 @@ body {
     animation-name: fadeOutRight;
 }
 
+.ng-enter, .ng-leave{
+    -webkit-animation-duration:0.3s;
+    -webkit-animation-fill-mode:both;
+    animation-duration:0.3s;
+    animation-fill-mode:both;
+}
+
+.ng-enter{
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIns;
+}
+
+.ng-leave{
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+
+
+
 
 
 /* NOTIFICATIONS */
