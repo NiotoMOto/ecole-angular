@@ -270,6 +270,10 @@ body {
 
 
 
-
-
 /* NOTIFICATIONS */
+
+
+
+tr.selected{
+    border: 2px red;
+}
