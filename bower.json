@@ -1,4 +1,4 @@
-{
+ {
   "name": "ecole",
   "version": "0.0.0",
   "dependencies": {
@@ -13,7 +13,7 @@
     "angular-touch": "1.2.16",
     "angular-route": "1.2.16",
     "x-editable": "~1.5.1",
-    "bootswatch": "~3.2.0+4",
+    "bootswatch": "3.2.0",
     "angular-bootstrap": "~0.11.0",
     "animate.css": "~3.2.0",
     "angular-i18n": "~1.2.25"
