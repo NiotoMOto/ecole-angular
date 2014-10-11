@@ -13,9 +13,9 @@ angular.module('ecoleApp')
             responsableService.save(
                 formResponsable,
                 function (data) {
-                    notificationservice.add("Ajout personnel " + data.prenom + " " + data.nom, "success");
+                    notificationservice.add('Ajout personnel ' + data.prenom + ' ' + data.nom, 'success');
                     $modalInstance.close();
-                })
-        }
+                });
+        };
 
   });

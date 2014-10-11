@@ -8,7 +8,7 @@
  * Service in the ecoleApp.
  */ 
  angular.module('ecoleApp')
- .factory('notificationservice', function notificationservice ( $rootScope){
+ .factory('notificationservice', function notificationservice (){
  	var notification = [];
  	return {	
  		add : function (text, type) {
@@ -21,8 +21,8 @@
  			console.log(index);
  			notification.splice(index, 1);
  		},
- 		getMessages : function (argument) {
+ 		getMessages : function () {
  			return notification ;
  		}
- 	}
+ 	};
  });

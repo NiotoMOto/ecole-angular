@@ -21,7 +21,7 @@
 
     $scope.recherche = function () {
         getResponsables();
-    }
+    };
 
     $scope.init = function(){
         $scope.pagination = {}; 
@@ -29,14 +29,14 @@
         $scope.pagination.rpp = 10 ;
         $scope.search = '';
         getResponsables();
-    }
+    };
 
     $scope.deleteResponsable = function (responsable) {
         responsableService.delete(
             {id: responsable.idresponsable},
             function () {
                 getResponsables();
-                notificationservice.add("Suppression responsable", "warning");
+                notificationservice.add('Suppression responsable', 'warning');
             });
 
     };
@@ -52,7 +52,7 @@
         $scope.responsables.$promise.then(function(data){
             $scope.pagination.totalItems = data.total_items;
         });
-    };
+    }
 
     $scope.init();
 });

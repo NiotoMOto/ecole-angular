@@ -17,10 +17,10 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
         });
         $scope.enfant.$promise.then(function() {
             $scope.dataLoaded = true;
-        })
+        });
         $scope.predicate = '-idanneeScolaire.libelle';
         $scope.responsables = responsableService.query({
-            all: "true"
+            all: 'true'
         });
         $scope.typeResponsables = typeResponsableService.query();
         reloadResponsablesEnfant();
@@ -28,7 +28,7 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
         $scope.annees = anneeScolaireService.query();
         reloadAnneeEnfant();
         reloadEtablissement();
-    }
+    };
 
     function reloadEtablissement() {
         $scope.etablissements = etablissementService.query();
@@ -38,9 +38,9 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
             id: responsableEnfant.idresponsableEnfant
         }, function() {
             reloadResponsablesEnfant();
-            notificationservice.add("Responsable enlevé ( " + responsableEnfant.idresponsable.prenom + " " + responsableEnfant.idresponsable.nom + " ) de l'enfant : " + $scope.enfant.prenom + " " + $scope.enfant.prenom, "warning");
+            notificationservice.add('Responsable enlevé ( ' + responsableEnfant.idresponsable.prenom + ' ' + responsableEnfant.idresponsable.nom + ' ) de l\'enfant : ' + $scope.enfant.prenom + ' ' + $scope.enfant.prenom, 'warning');
         });
-    }
+    };
 
     function reloadResponsablesEnfant() {
         $scope.responsableEnfants = responsableEnfantService.query({
@@ -61,10 +61,10 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
         });
         modalInstance.result.then(function() {
             $scope.responsables = responsableService.query({
-                all: "true"
+                all: 'true'
             });
         });
-    }
+    };
     $scope.ajoutResponsableEnfant = function() {
         var responsableEnfant = {};
         responsableEnfant.idresponsable = $scope.responsable;
@@ -82,13 +82,14 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
         modalInstance.result.then(function() {
             reloadEtablissement();
         });
-    }
+    };
+
     $scope.deleteAnneeEnfant = function(anneeEnfant) {
         anneeScolaireEnfantService.delete({
             id: anneeEnfant.idanneeScolaireEnfant
         }, function() {
             reloadAnneeEnfant();
-            notificationservice.add("Année scolaire enlevé pour l'enfant " + anneeEnfant.idenfant.prenom + " " + anneeEnfant.idenfant.nom, "warning");
+            notificationservice.add('Année scolaire enlevé pour l\'enfant ' + anneeEnfant.idenfant.prenom + ' ' + anneeEnfant.idenfant.nom, 'warning');
         });
     };
     $scope.ajoutAnneEnfant = function() {

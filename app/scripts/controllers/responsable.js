@@ -15,7 +15,7 @@ angular.module('ecoleApp')
 
         $scope.responsable.$promise.then(function(){
         	$scope.dataLoaded = true ;
-        })
+        });
 
         $scope.updateResponsable = function () {
             responsableService.update($scope.responsable);

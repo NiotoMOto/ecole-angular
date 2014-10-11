@@ -24,18 +24,18 @@
  		$scope.pagination.rpp = 10 ;
  		$scope.search = '';
  		getEntants ();
- 	}
+ 	};
 
  	$scope.recherche = function () {
  		getEntants();
- 	}
- 		
+ 	};
+
 
 
  	$scope.deleteEnfant = function (enfant) {
  		enfantsService.delete({id: enfant.idEnfant}, function () {
  			getEntants ();
- 			notificationservice.add("Suppression enfant", "warning");
+ 			notificationservice.add('Suppression enfant', 'warning');
  		});
  	};
 
@@ -48,9 +48,9 @@
 		);
 
  		$scope.enfants.$promise.then(function(data){
- 			$scope.pagination.totalItems = data.total_items;
+ 			$scope.pagination.totalItems = data.totalItems;
  		});
- 	};
+ 	}
 
  	$scope.init();
  	

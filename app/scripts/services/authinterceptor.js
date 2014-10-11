@@ -22,16 +22,16 @@
                 return response || $q.when(response);
             },
         responseError: function (rejection) {
-            console.log("HTTP : " + rejection.status);
+            console.log('HTTP : ' + rejection.status);
             switch(rejection.status){
                 case 401 :
                 $location.path('/login').search('returnTo', $location.path());
                 break;
                 case 500 :
-                notificationservice.add("Erreur système opération impossible", "danger");
+                notificationservice.add('Erreur système opération impossible', 'danger');
                 break;
                 default:
-                notificationservice.add("Erreur système opération impossible", "danger");
+                notificationservice.add('Erreur système opération impossible', 'danger');
             }
 
            return $q.reject(rejection);

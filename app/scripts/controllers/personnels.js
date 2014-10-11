@@ -16,11 +16,11 @@
         $scope.pagination.rpp = 10 ;
         $scope.search = '';
         getPersonnels();
-    }
+    };
 
     $scope.recherche = function () {
         getPersonnels();
-    }
+    };
 
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
@@ -36,7 +36,7 @@
             {id: personnel.idpersonnel},
             function () {
                 getPersonnels();
-                notificationservice.add("Suppression personnel", "warning");
+                notificationservice.add('Suppression personnel', 'warning');
             }
             );
     };
@@ -52,7 +52,7 @@
 
         $scope.personnels.$promise.then(function(data){
             $scope.pagination.totalItems = data.total_items;
-        })
+        });
     }
 
     $scope.init();

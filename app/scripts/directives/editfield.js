@@ -7,7 +7,7 @@
  * # editField
  */
  angular.module('ecoleApp')
- .directive('editField', function ($filter) {
+ .directive('editField', function () {
     return {
         restrict: 'C',
         scope: {
@@ -31,7 +31,7 @@
         });
 
            scope.$watch('field', function (newval, oldvalue) {
-            if (newval != oldvalue) {
+            if (newval !== oldvalue) {
                 var value = scope.field;
                 element.editable({
                     value: value,
