@@ -27,6 +27,11 @@ angular.module('ecoleApp')
 		byActivite: idActivite
 	});
 
+	$scope.updateActivite = function(activite){
+		ressourceActivite.update($scope.activite);
+	}
+
+
 	$scope.inscriptions.$promise.then(function(data){
 			angular.forEach(data, function(value, key) {
 				value.jours = ressourceJourSemaineInscription.query({
