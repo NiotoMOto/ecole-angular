@@ -75,6 +75,14 @@
         templateUrl: 'views/personnels/add.html',
         controller: 'PersonnelsAddCtrl'
     })
+    .when('/activites', {
+      templateUrl: 'views/activites.html',
+      controller: 'ActivitesCtrl'
+    })
+    .when('/activite/:id', {
+      templateUrl: 'views/activite.html',
+      controller: 'ActiviteCtrl'
+    })
     .otherwise({
         redirectTo: '/'
     });

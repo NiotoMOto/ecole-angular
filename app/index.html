@@ -64,7 +64,13 @@
               <li ng-class="{active : isActive(['/responsables/add'])}"><a ng-href="#/responsables/add">Création</a></li>
             </ul>
           </li>
-          
+          <li ng-class="{active : isActive(['/activites', '/activites/add'])}" class="dropdown">
+            <a href="" class="dropdown-toggle" >Activite <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li ng-class="{active : isActive(['/activites'])}"><a ng-href="#/activites">Liste</a></li>
+              <li ng-class="{active : isActive(['/activites/add'])}"><a ng-href="#/activites/add">Création</a></li>
+            </ul>
+          </li>
           <li><a href="" ng-click="logout()">Déconnexion</a></li>
       </ul>
 
@@ -161,6 +167,9 @@
 <script src="scripts/services/anneescolaireenfantservice.js"></script>
 <script src="scripts/controllers/etablissements/add.js"></script>
 <script src="scripts/controllers/modalajoutetablissement.js"></script>
+<script src="scripts/controllers/activites.js"></script>
+<script src="scripts/services/restservice.js"></script>
+<script src="scripts/controllers/activite.js"></script>
 <!-- endbuild -->
 </body>
 </html>

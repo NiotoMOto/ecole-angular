@@ -1,0 +1,30 @@
+<form ng-submit="addActivite(formActivite)" class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Ajout Activité</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="activitelibelle">Libelle</label>
+
+            <div class="col-md-4">
+                <input id="activitelibelle" name="libelle" ng-model="formActivite.libelle" type="text" placeholder="Libelle"
+                class="form-control input-md<>">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+             <div class="form-group">
+            <label class="col-md-4 control-label" for="activitelibelle">Description</label>
+
+            <div class="col-md-4">
+                <input id="activitedescription" name="libelle" ng-model="formActivite.description" type="text" placeholder="description"
+                class="form-control input-md<>">
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+       
+    </fieldset>
+</form>

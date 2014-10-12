@@ -1,0 +1,55 @@
+<ul class="breadcrumb">
+    <li><a href="#/activites/">Activites</a></li>
+    <li class="active">{{activite.libelle}}</li>
+</ul>
+<div class="panel panel-info">
+	<div class="panel panel-info">
+	    <div class="panel-heading">
+	        <h3 class="panel-title">Description</h3>
+	    </div>
+	</div>
+	<div class="panel-body">
+		<div>
+			<table ng-if="dataLoaded" class="table table-user-information">
+				<tbody>
+					<tr>
+						<td>Libelle</td>
+						<td>
+							<span class="editField"  field="activite.libelle" update-method="updateActivite()">{{activite.libelle || 'vide'}}</span>
+						</td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td><span class="editField" edit-type="textarea" field="activite.description"
+						update-method="updateActivite()">{{activite.description || 'vide'}}</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-info">
+	<div class="panel panel-info">
+	    <div class="panel-heading">
+	        <h3 class="panel-title">Sessions</h3>
+	    </div>
+	</div>
+	<div class="panel-body">
+		<div>
+			<table ng-if="dataLoaded" class="table">
+				<thead>
+					<th>Dates</th>
+					<th>Jours</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="inscription in inscriptions">
+						<td>{{inscription.periodeIdperiode.debut | date:'dd/MM/yyyy'}} - {{inscription.periodeIdperiode.fin | date:'dd/MM/yyyy'}}</td>
+						<td><span ng-repeat="jour in inscription.jours">{{jour.jourSemaineIdjour.jour}}</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
