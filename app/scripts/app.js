@@ -83,6 +83,10 @@
       templateUrl: 'views/activite.html',
       controller: 'ActiviteCtrl'
     })
+    .when('/activites/add', {
+      templateUrl: 'views/activites/add.html',
+      controller: 'ActivitesAddCtrl'
+    })
     .otherwise({
         redirectTo: '/'
     });
