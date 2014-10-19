@@ -14,3 +14,4 @@ angular.module('ecoleApp')
 		url : 'http://localhost:8080/ecole'
     };
   });
+  

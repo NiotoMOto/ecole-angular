@@ -48,6 +48,7 @@
 					<tr ng-repeat="inscription in inscriptions">
 						<td>{{inscription.periodeIdperiode.debut | date:'dd/MM/yyyy'}} - {{inscription.periodeIdperiode.fin | date:'dd/MM/yyyy'}}</td>
 						<td><span ng-repeat="jour in inscription.jours">{{jour.jourSemaineIdjour.jour}}</span></td>
+						<td><a class="btn btn-info" href="#/sessionActivite/{{inscription.idInscription}}">Détails</a></td>
 					</tr>
 				</tbody>
 			</table>

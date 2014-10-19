@@ -19,7 +19,14 @@ angular.module('ecoleApp')
 					search: '@search'
 				},
 				{
-					'update': { method: 'PUT' },
+					'update': {
+						 method: 'PUT',
+						 transformRequest : function(data){
+				 			delete data.$promise;
+							delete data.$resolved;
+						
+			 				return angular.toJson(data);
+						 }},
 					'query': { method: 'GET', isArray: true }
 				});
 			}

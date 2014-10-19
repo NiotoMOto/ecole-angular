@@ -16,12 +16,14 @@ angular.module('ecoleApp')
 	var idActivite = $routeParams.id;
 	$scope.dataLoaded = false ;
 
-	$scope.activite = ressourceActivite.get({
+	ressourceActivite.get({
 		id: idActivite
-	});
-	$scope.activite.$promise.then(function(){
+	}).$promise.then(function(data){
+		$scope.activite = angular.fromJson(angular.toJson(data));
+		console.log($scope.activite);
 		$scope.dataLoaded = true ;
-	})
+	});
+
 
 	$scope.inscriptions = ressourceInscription.query({
 		byActivite: idActivite

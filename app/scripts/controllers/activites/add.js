@@ -8,10 +8,13 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-  .controller('ActivitesAddCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ActivitesAddCtrl', function ($scope, restService, $location, notificationservice) {
+  	var ressourceActivite = restService.getRessource('activite');
+
+  	$scope.saveActivite = function(){
+  		ressourceActivite.save($scope.activite).$promise.then(function(data){
+			$location.path('/activite/' + data.idactivite);
+			notificationservice.add("Ajout activite " + data.libelle, "success");
+  		});
+  	};
   });

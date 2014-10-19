@@ -8,28 +8,39 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-  .controller('ActivitesCtrl', function ($scope, restService) {
+  .controller('ActivitesCtrl', function ($scope, restService, notificationservice) {
   	var ressourceActivite = restService.getRessource('activite');
   	var ressourceInscription = restService.getRessource('inscription');
   	var ressourceJourSemaineInscription = restService.getRessource('jourSemaineInscritpion');
-  	$scope.activites = ressourceActivite.query(); 
 
-  	$scope.activites.$promise.then(function(data){
-		angular.forEach(data, function(value, key) {
-			/*Récupere les sessions (inscriptions) des activites */
-			value.inscriptions = ressourceInscription.query({
-	            byActivite: value.idactivite
-	        });
-	        /*Récupere les jours de la semaine des session */
-    		value.inscriptions.$promise.then(function(data){
-				angular.forEach(data, function(value, key) {
-					value.jours = ressourceJourSemaineInscription.query({
-			            byInscription: value.idinscription
-			        });
+  	function updateActivite (){
+		$scope.activites = ressourceActivite.query(); 
+		$scope.activites.$promise.then(function(data){
+			angular.forEach(data, function(value) {
+				/*Récupere les sessions (inscriptions) des activites */
+				value.inscriptions = ressourceInscription.query({
+					byActivite: value.idactivite
+				});
+			/*Récupere les jours de la semaine des session */
+				value.inscriptions.$promise.then(function(data){
+					angular.forEach(data, function(value) {
+						value.jours = ressourceJourSemaineInscription.query({
+							byInscription: value.idinscription
+						});
+					});
 				});
 			});
 		});
-  	});
+	}
 
- 
+  	$scope.deleteActivite = function(activite){
+  		ressourceActivite.delete({id : activite.idactivite}).$promise.then(function(){
+  			updateActivite();
+  			notificationservice.add('Suppression activité réussie', 'warning');
+  		});
+  	};
+
+
+  	/** INIT **/
+ 	updateActivite ();
   });

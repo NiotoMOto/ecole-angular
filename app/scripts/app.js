@@ -87,6 +87,10 @@
       templateUrl: 'views/activites/add.html',
       controller: 'ActivitesAddCtrl'
     })
+    .when('/sessionActivite/:id', {
+      templateUrl: 'views/sessionactivite.html',
+      controller: 'SessionactiviteCtrl'
+    })
     .otherwise({
         redirectTo: '/'
     });
