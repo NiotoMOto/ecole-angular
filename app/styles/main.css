@@ -277,3 +277,12 @@ body {
 tr.selected{
     border: 2px red;
 }
+
+
+/* EDIT DAT */
+input.editable {
+   border-top: none;
+   border-right: none;
+   border-left: none;
+   background: transparent;
+}

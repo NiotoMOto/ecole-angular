@@ -30,7 +30,7 @@
                             </tr>
                             <tr>
                                 <td>Date de naissance</td>
-                                <td><span class="editField" field="enfant.birthday"
+                                <td><span class="editDate" field="enfant.birthday"
                                 update-method="updateEnfant()">{{enfant.birthday || 'vide'}}.</span></td>
                             </tr>
                             <tr>
@@ -142,7 +142,7 @@
             ng-options="responsable as responsable.prenom for responsable in responsables.items">
         </select>
         <select class="form-control" ng-model="typeResponsable"
-            ng-options="typeResponsable as typeResponsable.libelle for typeResponsable in typeResponsables">
+            ng-options="typeResponsable as typeResponsable.libelle for typeResponsable in typeResponsables.items">
         </select>
         <br>
         <div class="text-center">
@@ -167,7 +167,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="anneEnfant in anneesEnfant | orderBy:predicate:reverse">
+            <tr ng-repeat="anneEnfant in anneesEnfant.items | orderBy:predicate:reverse">
                 <td>{{anneEnfant.idanneeScolaire.libelle}}</td>
                 <td>{{anneEnfant.idClasse.libelle}}</td>
                 <td>{{anneEnfant.idetablissement.libelle}}</td>
@@ -186,17 +186,17 @@
             <tr  ng-class="{selected: removeHover}"   ng-show="showNewAnnee">
                 <td>
                     <select class="form-control" ng-model="newAnnee.annee"
-                        ng-options="annee as annee.libelle for annee in annees">
+                        ng-options="annee as annee.libelle for annee in annees.items">
                     </select>
                 </td>
                 <td>
                     <select class="form-control" ng-model="newAnnee.classe"
-                        ng-options="classe as classe.libelle for classe in classesEcole">
+                        ng-options="classe as classe.libelle for classe in classesEcole.items">
                     </select>
                 </td>
                 <td >
                     <select class="form-control" ng-model="newAnnee.etablissement"
-                        ng-options="etablissement as etablissement.libelle for etablissement in etablissements">
+                        ng-options="etablissement as etablissement.libelle for etablissement in etablissements.items">
                     </select>
                 </td>
                 <td>

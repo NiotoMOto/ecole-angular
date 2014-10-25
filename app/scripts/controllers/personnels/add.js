@@ -8,11 +8,12 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-    .controller('PersonnelsAddCtrl', function ($scope, $location, personnelService, notificationservice) {
+    .controller('PersonnelsAddCtrl', function ($scope, $location, restService, notificationservice) {
+        var ressourcePersonnel = restService.getRessource('personnel');
         $scope.formpersonnel = {};
 
         $scope.savePersonnel = function () {
-            personnelService.save(
+            ressourcePersonnel.save(
                 $scope.formpersonnel,
                 function (data) {
                     $location.path("/personnels");
@@ -20,6 +21,4 @@ angular.module('ecoleApp')
                 }
             );
         }
-
-
     });

@@ -6,35 +6,53 @@
  * # EnfantCtrl
  * Controller of the ecoleApp
  */
-angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParams, $modal, enfantsService, responsableService, typeResponsableService, responsableEnfantService, notificationservice, anneeScolaireEnfantService, etablissementService, classeService, anneeScolaireService) {
+angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParams, $modal, restService, notificationservice) {
     var idEnfant = $routeParams.id;
     var modalInstance;
     $scope.dataLoaded = false;
+    var ressourceEnfant = restService.getRessource('enfant');
+    var ressourceAnneeScolaire = restService.getRessource('anneeScolaire');
+    var ressourceResponsable = restService.getRessource('responsable');
+    var ressourceTypeResponsable = restService.getRessource('typeResponsable');
+    var ressourceAnneeScolaireEnfant = restService.getRessource('anneeScolaireEnfant');
+    var ressourceEtablissementScolaire = restService.getRessource('etablissement');
+    var ressourceClasseScolaire = restService.getRessource('classe');
+    var ressourceresponsableEnfant = restService.getRessource('responsableEnfant');
+
+
+    function getResponsables(){
+        ressourceResponsable.query({
+            all: 'true'
+        }).$promise.then(function(data){
+            $scope.responsables = data;
+        });
+    }
+
     $scope.init = function() {
         $scope.showNewAnnee = false;
-        $scope.enfant = enfantsService.get({
+        ressourceEnfant.get({
             id: idEnfant
-        });
-        $scope.enfant.$promise.then(function() {
+        }).$promise.then(function(data) {
+            $scope.enfant = data ;
             $scope.dataLoaded = true;
         });
         $scope.predicate = '-idanneeScolaire.libelle';
-        $scope.responsables = responsableService.query({
-            all: 'true'
-        });
-        $scope.typeResponsables = typeResponsableService.query();
+        getResponsables();
+        $scope.typeResponsables = ressourceTypeResponsable.query();
         reloadResponsablesEnfant();
-        $scope.classesEcole = classeService.query();
-        $scope.annees = anneeScolaireService.query();
+        $scope.classesEcole = ressourceClasseScolaire.query();
+        $scope.annees = ressourceAnneeScolaire.query();
         reloadAnneeEnfant();
         reloadEtablissement();
     };
 
     function reloadEtablissement() {
-        $scope.etablissements = etablissementService.query();
+        ressourceEtablissementScolaire.query().$promise.then(function(data){
+            $scope.etablissements = data;
+        });
     }
     $scope.deleteResponsableEnfant = function(responsableEnfant) {
-        responsableEnfantService.delete({
+        ressourceresponsableEnfant.delete({
             id: responsableEnfant.idresponsableEnfant
         }, function() {
             reloadResponsablesEnfant();
@@ -43,16 +61,22 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
     };
 
     function reloadResponsablesEnfant() {
-        $scope.responsableEnfants = responsableEnfantService.query({
+        ressourceresponsableEnfant.query({
             byEnfant: idEnfant
+        }).$promise.then(function(data){
+            $scope.responsableEnfants = data.items;
         });
     }
 
     function reloadAnneeEnfant() {
-        $scope.anneesEnfant = anneeScolaireEnfantService.query();
+        ressourceAnneeScolaireEnfant.query({
+            byEnfant : idEnfant
+        }).$promise.then(function(data){
+            $scope.anneesEnfant = data ;
+        });
     }
     $scope.updateEnfant = function() {
-        enfantsService.update($scope.enfant);
+        ressourceEnfant.update($scope.enfant);
     };
     $scope.openResponsableModal = function() {
         modalInstance = $modal.open({
@@ -60,9 +84,7 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
             controller: 'ModalajoutresponsableCtrl'
         });
         modalInstance.result.then(function() {
-            $scope.responsables = responsableService.query({
-                all: 'true'
-            });
+            getResponsables();
         });
     };
     $scope.ajoutResponsableEnfant = function() {
@@ -70,7 +92,7 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
         responsableEnfant.idresponsable = $scope.responsable;
         responsableEnfant.idenfant = $scope.enfant;
         responsableEnfant.idtypeResponsable = $scope.typeResponsable;
-        responsableEnfantService.save(responsableEnfant, function() {
+        ressourceresponsableEnfant.save(responsableEnfant, function() {
             reloadResponsablesEnfant();
         });
     };
@@ -85,7 +107,7 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
     };
 
     $scope.deleteAnneeEnfant = function(anneeEnfant) {
-        anneeScolaireEnfantService.delete({
+        ressourceAnneeScolaireEnfant.delete({
             id: anneeEnfant.idanneeScolaireEnfant
         }, function() {
             reloadAnneeEnfant();
@@ -98,7 +120,7 @@ angular.module('ecoleApp').controller('EnfantCtrl', function($scope, $routeParam
         anneeEnfant.idenfant = $scope.enfant;
         anneeEnfant.idanneeScolaire = $scope.newAnnee.annee;
         anneeEnfant.idClasse = $scope.newAnnee.classe;
-        anneeScolaireEnfantService.save(anneeEnfant, function() {
+        ressourceAnneeScolaireEnfant.save(anneeEnfant, function() {
             reloadAnneeEnfant();
         });
     };

@@ -21,7 +21,7 @@
            element.editable({
             text : 'EMPTY',
             value: value,
-            type: type,
+            type: scope.type,
             success: function (response, nvValue) {
                 scope.$apply(function () {
                     scope.field = nvValue;   
@@ -29,7 +29,6 @@
                 scope.updateMethod();   
             }
         });
-
            scope.$watch('field', function (newval, oldvalue) {
             if (newval !== oldvalue) {
                 var value = scope.field;

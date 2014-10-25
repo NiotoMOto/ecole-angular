@@ -22,7 +22,6 @@
                 return response || $q.when(response);
             },
         responseError: function (rejection) {
-            console.log('HTTP : ' + rejection.status);
             switch(rejection.status){
                 case 401 :
                 $location.path('/login').search('returnTo', $location.path());

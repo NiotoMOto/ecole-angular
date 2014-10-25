@@ -8,7 +8,8 @@
  * Controller of the ecoleApp
  */
  angular.module('ecoleApp')
- .controller('EnfantsCtrl', function ($scope, $rootScope, enfantsService, $filter, notificationservice) {
+ .controller('EnfantsCtrl', function ($scope, $rootScope, restService,  $filter, notificationservice) {
+ 	var ressourceEnfant = restService.getRessource('enfant');
 
  	$scope.setPage = function (pageNo) {
  		$scope.currentPage = pageNo;
@@ -33,7 +34,7 @@
 
 
  	$scope.deleteEnfant = function (enfant) {
- 		enfantsService.delete({id: enfant.idEnfant}, function () {
+ 		ressourceEnfant.delete({id: enfant.idEnfant}, function () {
  			getEntants ();
  			notificationservice.add('Suppression enfant', 'warning');
  		});
@@ -41,16 +42,18 @@
 
  	function getEntants (){
  		$scope.enfants = {};
- 		$scope.enfants = enfantsService.query(
- 			{page: $scope.pagination.currentPage,
- 			rpp : $scope.pagination.rpp,
-			search : $scope.search }
-		);
+ 		ressourceEnfant.query(
+ 			{
+				page: $scope.pagination.currentPage,
+ 				rpp : $scope.pagination.rpp,
+				search : $scope.search 
+			}
+		).$promise.then(function(data){
+			$scope.enfants = data;
+			$scope.pagination.totalItems = data.total_items;
+		});
 
- 		$scope.enfants.$promise.then(function(data){
- 			$scope.pagination.totalItems = data.totalItems;
- 		});
- 	}
+ 	};
 
  	$scope.init();
  	

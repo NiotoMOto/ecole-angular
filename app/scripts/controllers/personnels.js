@@ -8,7 +8,8 @@
  * Controller of the ecoleApp
  */
  angular.module('ecoleApp')
- .controller('PersonnelsCtrl', function ($scope, personnelService, notificationservice ) {
+ .controller('PersonnelsCtrl', function ($scope, restService, notificationservice ) {
+    var ressourcePersonnel = restService.getRessource('personnel');
 
     $scope.init = function(){
         $scope.pagination = {}; 
@@ -32,7 +33,7 @@
 
 
     $scope.deletePersonnel = function (personnel) {
-        personnelService.delete(
+        ressourcePersonnel.delete(
             {id: personnel.idpersonnel},
             function () {
                 getPersonnels();
@@ -43,7 +44,7 @@
 
     function getPersonnels(){
         $scope.personnels = {};
-        $scope.personnels = personnelService.query(
+        $scope.personnels = ressourcePersonnel.query(
         {
             page: $scope.pagination.currentPage,
             rpp : $scope.pagination.rpp,

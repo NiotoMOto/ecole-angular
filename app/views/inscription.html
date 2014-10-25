@@ -1,0 +1,86 @@
+<ul class="breadcrumb">
+    <li>
+        <a href="#/activites/">Activites </a>/
+        <a href="#/activite/{{inscription.idactivite.idactivite}}">{{inscription.idactivite.libelle}} </a> /
+        {{inscription.debut | date:'dd/MM/yyyy'}} - {{inscription.fin | date:'dd/MM/yyyy'}}
+    </li>
+    <li class="active">{{activite.libelle}}</li>
+</ul>
+<div class="panel panel-info">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Description</h3>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <table ng-if="dataLoaded" class="table table-user-information">
+                <tbody>
+                    <tr>
+                        <td>Date début</td>
+                        <td>
+                            <span edit-type="date" class="editDate"  field="inscription.debut" update-method="updateInscription()"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date fin</td>
+                        <td>
+                            <span class="editDate"  field="inscription.fin" update-method="updateInscription()"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Prix</td>
+                        <td>
+                            <span  class="editField"  field="inscription.prix" update-method="updateInscription()">{{inscription.prix || 'vide'}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Enfants inscrits</h3>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <th>Enfant</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listEnfantsInscrits.items">
+                    <td>{{item.idenfant.prenom}} {{item.idenfant.nom}}</td>
+                    <td>
+                        <button  class="btn btn-danger btn-xs" type="button"
+                        ng-click="deleteAnneeEnfant(anneEnfant)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </td>
+                    </button>
+                </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+            <td>
+                <ui-select ng-model="enfant.selected"
+                theme="bootstrap"
+                ng-disabled="disabled"
+                reset-search-input="true"
+                style="width: 300px;">
+                <ui-select-match placeholder="Enfants...">{{enfant.selected.prenom}} {{enfant.selected.nom}}</ui-select-match>
+                <ui-select-choices repeat="enfant in listEnfants.items track by $index"
+                refresh="refreshEnfant($select.search)"
+                refresh-delay="0">
+                <span ng-bind-html="enfant.prenom"></span>
+                <span ng-bind-html="enfant.nom"></span>
+                </ui-select-choices>
+                </ui-select>
+            </td>
+            <td><button ng-click="inscriptionEnfant()" class="btn btn-primary">Inscrire enfant</button></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

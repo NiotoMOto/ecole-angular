@@ -8,8 +8,8 @@
  * Controller of the ecoleApp
  */
  angular.module('ecoleApp')
- .controller('ResponsablesCtrl', function ($scope, responsableService, notificationservice) {
-
+ .controller('ResponsablesCtrl', function ($scope, restService, notificationservice) {
+    var ressourceResponsable = restService.getRessource('responsable');
 
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
@@ -32,7 +32,7 @@
     };
 
     $scope.deleteResponsable = function (responsable) {
-        responsableService.delete(
+        ressourceResponsable.delete(
             {id: responsable.idresponsable},
             function () {
                 getResponsables();
@@ -43,7 +43,7 @@
 
     function getResponsables() {
         $scope.responsables = {};
-        $scope.responsables = responsableService.query(
+        $scope.responsables = ressourceResponsable.query(
             {page: $scope.pagination.currentPage,
                 rpp : $scope.pagination.rpp,
                 search : $scope.search }

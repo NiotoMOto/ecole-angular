@@ -16,7 +16,8 @@
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ui.select'
     ])
  .config(function ($routeProvider, $httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
@@ -90,6 +91,10 @@
     .when('/sessionActivite/:id', {
       templateUrl: 'views/sessionactivite.html',
       controller: 'SessionactiviteCtrl'
+    })
+    .when('/inscription/:id', {
+      templateUrl: 'views/inscription.html',
+      controller: 'InscriptionCtrl'
     })
     .otherwise({
         redirectTo: '/'

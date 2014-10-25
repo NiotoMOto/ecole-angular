@@ -8,16 +8,20 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-    .controller('ResponsableCtrl', function ($scope, $routeParams, responsableService) {
-        var id = $routeParams.id;
-        $scope.dataLoaded = false ;
-        $scope.responsable = responsableService.get({id: id});
+    .controller('ResponsableCtrl', function($scope, $routeParams, restService) {
+        var ressourcePersonnel = restService.getRessource('responsable');
 
-        $scope.responsable.$promise.then(function(){
-        	$scope.dataLoaded = true ;
+        var id = $routeParams.id;
+        $scope.dataLoaded = false;
+        $scope.responsable = ressourcePersonnel.get({
+            id: id
         });
 
-        $scope.updateResponsable = function () {
-            responsableService.update($scope.responsable);
+        $scope.responsable.$promise.then(function() {
+            $scope.dataLoaded = true;
+        });
+
+        $scope.updateResponsable = function() {
+            ressourcePersonnel.update($scope.responsable);
         };
     });

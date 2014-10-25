@@ -14,9 +14,9 @@ angular.module('ecoleApp')
 				return $resource(apiService.url + '/'+shema+'/:id?page=:page&rpp=:rpp&search=:search', 
 				{
 					id: '@id',
-					page: '@page',
-					rpp: '@rpp',
-					search: '@search'
+					age: '@page',
+	        		rpp: '@rpp',
+	                search: '@search'
 				},
 				{
 					'update': {
@@ -24,10 +24,21 @@ angular.module('ecoleApp')
 						 transformRequest : function(data){
 				 			delete data.$promise;
 							delete data.$resolved;
-						
 			 				return angular.toJson(data);
-						 }},
-					'query': { method: 'GET', isArray: true }
+						 },
+
+					},
+					'get': {
+					  method: 'get',
+					  interceptor: {
+					    response: function(response) {
+					      delete response.$promise;
+						  delete response.$resolved;
+					      return response.data;
+					    }
+					  }
+					},
+					'query': { method: 'GET', isArray: false }
 				});
 			}
 		};

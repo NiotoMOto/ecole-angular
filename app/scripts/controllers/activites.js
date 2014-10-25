@@ -11,27 +11,28 @@ angular.module('ecoleApp')
   .controller('ActivitesCtrl', function ($scope, restService, notificationservice) {
   	var ressourceActivite = restService.getRessource('activite');
   	var ressourceInscription = restService.getRessource('inscription');
-  	var ressourceJourSemaineInscription = restService.getRessource('jourSemaineInscritpion');
 
   	function updateActivite (){
-		$scope.activites = ressourceActivite.query(); 
-		$scope.activites.$promise.then(function(data){
-			angular.forEach(data, function(value) {
+		ressourceActivite.query().$promise.then(function(data){
+			$scope.activites = data.items;
+			angular.forEach(data.items, function(value) {
 				/*Récupere les sessions (inscriptions) des activites */
-				value.inscriptions = ressourceInscription.query({
+				ressourceInscription.query({
 					byActivite: value.idactivite
-				});
-			/*Récupere les jours de la semaine des session */
-				value.inscriptions.$promise.then(function(data){
-					angular.forEach(data, function(value) {
-						value.jours = ressourceJourSemaineInscription.query({
-							byInscription: value.idinscription
-						});
-					});
+				}).$promise.then(function(data){
+					value.inscriptions = data.items;
 				});
 			});
 		});
-	}
+	};
+
+
+  $scope.open = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.opened = true;
+  };
 
   	$scope.deleteActivite = function(activite){
   		ressourceActivite.delete({id : activite.idactivite}).$promise.then(function(){
