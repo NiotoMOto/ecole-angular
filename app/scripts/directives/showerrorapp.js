@@ -19,6 +19,13 @@ angular.module('ecoleApp')
 				scope.removeNotif = function(index) {
 					scope.messages.splice(index, 1);
 				}
+			},
+			start : function() {
+					$interval(function() {
+					console.log('toto');
+					if(notification.length > 0)
+						notification.pop();
+				}, 5000);
 			}
 		};
 	});
