@@ -21,7 +21,7 @@ angular.module('ecoleApp')
 				}
 			},
 			start : function() {
-					$interval(function() {
+				$interval(function() {
 					console.log('toto');
 					if(notification.length > 0)
 						notification.pop();
