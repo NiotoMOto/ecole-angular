@@ -2,104 +2,111 @@
     <li><a href="#/activites/">Activites</a></li>
     <li class="active">{{activite.libelle}}</li>
 </ul>
-<div class="panel panel-info">
+
+<div class="col-md-5">
+    <div class="panel panel-info">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Description</h3>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <table ng-if="dataLoaded" class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <td>Libelle</td>
+                            <td>
+                                <span class="editField"  field="activite.libelle" update-method="updateActivite()">{{activite.libelle || 'vide'}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td><span class="editField" edit-type="textarea" field="activite.description"
+                                update-method="updateActivite()">{{activite.description || 'vide'}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-7">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Description</h3>
+            <h3 class="panel-title">Sessions</h3>
         </div>
-    </div>
-    <div class="panel-body">
-        <div>
-            <table ng-if="dataLoaded" class="table table-user-information">
-                <tbody>
-                    <tr>
-                        <td>Libelle</td>
-                        <td>
-                            <span class="editField"  field="activite.libelle" update-method="updateActivite()">{{activite.libelle || 'vide'}}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td><span class="editField" edit-type="textarea" field="activite.description"
-                            update-method="updateActivite()">{{activite.description || 'vide'}}</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <h3 class="panel-title">Sessions</h3>
-    </div>
-    <div class="panel-body">
-        <div>
-            <table ng-if="dataLoaded" class="table">
-                <thead>
-                    <th>Dates</th>
-                    <th>Jour</th>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="inscription in inscriptions">
-                        <td>{{inscription.debut | date:'dd/MM/yyyy'}} - {{inscription.fin | date:'dd/MM/yyyy'}}</td>
-                        <td>{{inscription.jour}}</td>
-                        <td><a class="btn btn-info" href="#/inscription/{{inscription.idinscription}}">Détails</a></td>
-                        <td><a class="btn btn-danger" ng-click="deleteInscription(inscription)"><span class="glyphicon glyphicon-trash"></span></a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <h3 class="panel-title">Ajouter session</h3>
-    </div>
-    <form ng-submit="ajoutSessionActivite()">
         <div class="panel-body">
-            <fieldset>
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="nominput">Début</label>
-                    <div class="col-md-8">
-                        <p class="input-group">
-                        <input readonly="readonly" type="text" class="form-control" datepicker-popup="dd-MM-yy" ng-model="inscription.debut" is-open="debutOpened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                        <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="openDatePicker($event, 'debutOpened')"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="nominput">Fin</label>
-                    <div class="col-md-8">
-                        <p class="input-group">
-                        <input ng-model="inscription.fin" readonly="readonly" type="text" class="form-control" datepicker-popup="dd-MM-yy" datepicker-mode="year" is-open="lastOpened" ng-required="true" close-text="Close" />
-                        <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="openDatePicker($event, 'lastOpened')"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="nominput">Prix</label>
-                    <div class="col-md-8">
-                        <input ng-model="inscription.prix" class="form-control"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-4 control-label" > Jour de la semaine </label>
-                    <div class="col-md-8">
-                    	<select ng-model="inscription.jour" ng-options="jour for jour in joursSemaines" class="form-control"></select>
-               		</div>
+            <div>
+                <table ng-if="dataLoaded" class="table">
+                    <thead>
+                        <th>Dates</th>
+                        <th>Jour</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="inscription in inscriptions">
+                            <td>{{inscription.debut | date:'dd/MM/yyyy'}} - {{inscription.fin | date:'dd/MM/yyyy'}}</td>
+                            <td>{{inscription.jour}}</td>
+                            <td><a class="btn btn-info" href="#/inscription/{{inscription.idinscription}}">Détails</a></td>
+                            <td><a class="btn btn-danger" ng-click="deleteInscription(inscription)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <br>
-            <div class="form-group">
-                <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
-                </div>
-            </div>
-        </fieldset>
+        </div>
     </div>
-</form>
+</div>
+<div class="col-md-offset-5 col-md-7">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Ajouter session</h3>
+        </div>
+        <form ng-submit="ajoutSessionActivite()">
+            <div class="panel-body">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="nominput">Début</label>
+                        <div class="col-md-8">
+                            <p class="input-group">
+                            <input readonly="readonly" type="text" class="form-control" datepicker-popup="dd-MM-yy" ng-model="inscription.debut" is-open="debutOpened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openDatePicker($event, 'debutOpened')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="nominput">Fin</label>
+                        <div class="col-md-8">
+                            <p class="input-group">
+                            <input ng-model="inscription.fin" readonly="readonly" type="text" class="form-control" datepicker-popup="dd-MM-yy" datepicker-mode="year" is-open="lastOpened" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openDatePicker($event, 'lastOpened')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="nominput">Prix</label>
+                        <div class="col-md-8">
+                            <input ng-model="inscription.prix" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" > Jour de la semaine </label>
+                        <div class="col-md-8">
+                        <select ng-model="inscription.jour" ng-options="jour for jour in joursSemaines" class="form-control"></select>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>
 </div>

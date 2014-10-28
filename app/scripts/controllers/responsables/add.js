@@ -8,13 +8,14 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-    .controller('ResponsablesAddCtrl', function ($scope, $location, responsableService, notificationservice) {
+    .controller('ResponsablesAddCtrl', function ($scope, $location, restService, notificationservice) {
+        var ressourceResponsable = restService.getRessource('responsable');
         $scope.addResponsable = function (formResponsable) {
-            responsableService.save(
+            ressourceResponsable.save(
                 formResponsable,
                 function (data) {
                     $location.path("responsables")
-                    notificationservice.add("Ajout personnel" + data.prenom + " " + data.nom, "success");
+                    notificationservice.add("Ajout responsable" + data.prenom + " " + data.nom, "success");
                 })
         }
 

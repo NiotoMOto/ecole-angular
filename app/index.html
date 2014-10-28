@@ -1,171 +1,157 @@
 <!doctype html>
 <html class="no-js">
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <!-- build:css(.) styles/vendor.css -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
-  <link rel="stylesheet" href="bower_components/bootswatch/cosmo/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
-  <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- endbuild -->
-</head>
-<body ng-app="ecoleApp" ng-controller="MaincontrollerCtrl">
-
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <div class="container">
-    <nav class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Ecole</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-          <li ng-class="{active : isActive(['/enfants', '/enfants/add'])}" class="dropdown">
-            <a href="" class="dropdown-toggle" >Enfants <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li ng-class="{active : isActive(['/enfants'])}"><a ng-href="#/enfants">Liste</a></li>
-              <li ng-class="{active : isActive(['/enfants/add'])}"><a ng-href="#/enfants/add">Création</a></li>
-            </ul>
-          </li>
-          <li ng-class="{active : isActive(['/personnels', '/personnels/add'])}" class="dropdown">
-            <a href="" class="dropdown-toggle" >Personnels <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li ng-class="{active : isActive(['/personnels'])}"><a ng-href="#/personnels">Liste</a></li>
-              <li ng-class="{active : isActive(['/personnels/add'])}"><a ng-href="#/personnels/add">Création</a></li>
-            </ul>
-          </li>
-          <li ng-class="{active : isActive(['/responsables', '/responsables/add'])}" class="dropdown">
-            <a href="" class="dropdown-toggle" >Responsables <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li ng-class="{active : isActive(['/responsables'])}"><a ng-href="#/responsables">Liste</a></li>
-              <li ng-class="{active : isActive(['/responsables/add'])}"><a ng-href="#/responsables/add">Création</a></li>
-            </ul>
-          </li>
-          <li ng-class="{active : isActive(['/activites', '/activites/add'])}" class="dropdown">
-            <a href="" class="dropdown-toggle" >Activite <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li ng-class="{active : isActive(['/activites'])}"><a ng-href="#/activites">Liste</a></li>
-              <li ng-class="{active : isActive(['/activites/add'])}"><a ng-href="#/activites/add">Création</a></li>
-            </ul>
-          </li>
-          <li><a href="" ng-click="logout()">Déconnexion</a></li>
-      </ul>
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-
-
-      <div id="notif-zone">
-        <show-error-app messages="notificationservice.getMessages()" ></show-error-app>
-      </div>
-      <div  ng-view=""></div>
-
-      <div class="footer">
-        <p>Ecole levinas inc</p>
-      </div>
-    </div>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-      ga('create', 'UA-XXXXX-X');
-      ga('send', 'pageview');
-    </script>
-
-    <!-- build:js(.) scripts/oldieshim.js -->
-<!--[if lt IE 9]>
-<script src="bower_components/es5-shim/es5-shim.js"></script>
-<script src="bower_components/json3/lib/json3.min.js"></script>
-<![endif]-->
-<!-- endbuild -->
-
-<!-- build:js(.) scripts/vendor.js -->
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/json3/lib/json3.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-touch/angular-touch.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="bower_components/angular-ui-select/dist/select.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
-
-<!-- build:js({.tmp,app}) scripts/scripts.js -->
-<script src="scripts/app.js"></script>
-<script src="scripts/controllers/main.js"></script>
-<script src="scripts/controllers/about.js"></script>
-<script src="scripts/controllers/enfants.js"></script>
-<script src="scripts/controllers/enfant.js"></script>
-<script src="scripts/controllers/enfants/add.js"></script>
-<script src="scripts/services/userservice.js"></script>
-<script src="scripts/controllers/responsables.js"></script>
-<script src="scripts/controllers/responsables/add.js"></script>
-<script src="scripts/controllers/responsable.js"></script>
-<script src="scripts/services/authinterceptor.js"></script>
-<script src="scripts/controllers/login.js"></script>
-<script src="scripts/controllers/maincontroller.js"></script>
-<script src="scripts/controllers/personnel.js"></script>
-<script src="scripts/controllers/personnels.js"></script>
-<script src="scripts/controllers/personnels/add.js"></script>
-<script src="scripts/directives/editfield.js"></script>
-<script src="scripts/services/apiservice.js"></script>
-<script src="scripts/directives/showerrorapp.js"></script>
-<script src="scripts/services/notificationservice.js"></script>
-<script src="scripts/controllers/modalajoutresponsable.js"></script>
-<script src="scripts/controllers/etablissements/add.js"></script>
-<script src="scripts/controllers/modalajoutetablissement.js"></script>
-<script src="scripts/controllers/activites.js"></script>
-<script src="scripts/services/restservice.js"></script>
-<script src="scripts/controllers/activite.js"></script>
-<script src="scripts/controllers/activites/add.js"></script>
-<script src="scripts/controllers/sessionactivite.js"></script>
-<script src="scripts/controllers/inscription.js"></script>
-<script src="scripts/directives/editdate.js"></script>
-<!-- endbuild -->
-</body>
-</html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.) styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
+        <link rel="stylesheet" href="bower_components/bootswatch/cosmo/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+        <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body ng-app="ecoleApp" ng-controller="MaincontrollerCtrl">
+        <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+            your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- Add your site or application content here -->
+        <div id="wrapper" class="">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Ecole</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li ng-class="{active : isActive(['/enfants', '/enfants/add'])}" class="dropdown">
+                                <a href="" class="dropdown-toggle" >Enfants <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li ng-class="{active : isActive(['/enfants'])}"><a ng-href="#/enfants">Liste</a></li>
+                                    <li ng-class="{active : isActive(['/enfants/add'])}"><a ng-href="#/enfants/add">Création</a></li>
+                                </ul>
+                            </li>
+                            <li ng-class="{active : isActive(['/personnels', '/personnels/add'])}" class="dropdown">
+                                <a href="" class="dropdown-toggle" >Personnels <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li ng-class="{active : isActive(['/personnels'])}"><a ng-href="#/personnels">Liste</a></li>
+                                    <li ng-class="{active : isActive(['/personnels/add'])}"><a ng-href="#/personnels/add">Création</a></li>
+                                </ul>
+                            </li>
+                            <li ng-class="{active : isActive(['/responsables', '/responsables/add'])}" class="dropdown">
+                                <a href="" class="dropdown-toggle" >Responsables <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li ng-class="{active : isActive(['/responsables'])}"><a ng-href="#/responsables">Liste</a></li>
+                                    <li ng-class="{active : isActive(['/responsables/add'])}"><a ng-href="#/responsables/add">Création</a></li>
+                                </ul>
+                            </li>
+                            <li ng-class="{active : isActive(['/activites', '/activites/add'])}" class="dropdown">
+                                <a href="" class="dropdown-toggle" >Activite <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li ng-class="{active : isActive(['/activites'])}"><a ng-href="#/activites">Liste</a></li>
+                                    <li ng-class="{active : isActive(['/activites/add'])}"><a ng-href="#/activites/add">Création</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="" ng-click="logout()">Déconnexion</a></li>
+                        </ul>
+                        </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                    <div id="notif-zone">
+                        <show-error-app messages="notificationservice.getMessages()" ></show-error-app>
+                    </div>
+                    <div class="col-md-12"  ng-view=""></div>
+                    <div class="footer">
+                        <p>Ecole levinas inc</p>
+                    </div>
+                </div>
+                <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+                <script>
+                    (function (i, s, o, g, r, a, m) {
+                        i['GoogleAnalyticsObject'] = r;
+                        i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                        a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                        a.async = 1;
+                        a.src = g;
+                        m.parentNode.insertBefore(a, m)
+                    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                    ga('create', 'UA-XXXXX-X');
+                    ga('send', 'pageview');
+                </script>
+                <!-- build:js(.) scripts/oldieshim.js -->
+                <!--[if lt IE 9]>
+                <script src="bower_components/es5-shim/es5-shim.js"></script>
+                <script src="bower_components/json3/lib/json3.min.js"></script>
+                <![endif]-->
+                <!-- endbuild -->
+                <!-- build:js(.) scripts/vendor.js -->
+                <!-- bower:js -->
+                <script src="bower_components/jquery/dist/jquery.js"></script>
+                <script src="bower_components/angular/angular.js"></script>
+                <script src="bower_components/json3/lib/json3.js"></script>
+                <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+                <script src="bower_components/angular-resource/angular-resource.js"></script>
+                <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+                <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+                <script src="bower_components/angular-animate/angular-animate.js"></script>
+                <script src="bower_components/angular-touch/angular-touch.js"></script>
+                <script src="bower_components/angular-route/angular-route.js"></script>
+                <script src="bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
+                <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+                <script src="bower_components/angular-ui-select/dist/select.js"></script>
+                <!-- endbower -->
+                <!-- endbuild -->
+                <!-- build:js({.tmp,app}) scripts/scripts.js -->
+                <script src="scripts/app.js"></script>
+                <script src="scripts/controllers/main.js"></script>
+                <script src="scripts/controllers/about.js"></script>
+                <script src="scripts/controllers/enfants.js"></script>
+                <script src="scripts/controllers/enfant.js"></script>
+                <script src="scripts/controllers/enfants/add.js"></script>
+                <script src="scripts/services/userservice.js"></script>
+                <script src="scripts/controllers/responsables.js"></script>
+                <script src="scripts/controllers/responsables/add.js"></script>
+                <script src="scripts/controllers/responsable.js"></script>
+                <script src="scripts/services/authinterceptor.js"></script>
+                <script src="scripts/controllers/login.js"></script>
+                <script src="scripts/controllers/maincontroller.js"></script>
+                <script src="scripts/controllers/personnel.js"></script>
+                <script src="scripts/controllers/personnels.js"></script>
+                <script src="scripts/controllers/personnels/add.js"></script>
+                <script src="scripts/directives/editfield.js"></script>
+                <script src="scripts/services/apiservice.js"></script>
+                <script src="scripts/directives/showerrorapp.js"></script>
+                <script src="scripts/services/notificationservice.js"></script>
+                <script src="scripts/controllers/modalajoutresponsable.js"></script>
+                <script src="scripts/controllers/etablissements/add.js"></script>
+                <script src="scripts/controllers/modalajoutetablissement.js"></script>
+                <script src="scripts/controllers/activites.js"></script>
+                <script src="scripts/services/restservice.js"></script>
+                <script src="scripts/controllers/activite.js"></script>
+                <script src="scripts/controllers/activites/add.js"></script>
+                <script src="scripts/controllers/sessionactivite.js"></script>
+                <script src="scripts/controllers/inscription.js"></script>
+                <script src="scripts/directives/editdate.js"></script>
+                <!-- endbuild -->
+            </body>
+        </html>

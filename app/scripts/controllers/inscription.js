@@ -8,7 +8,7 @@
  * Controller of the ecoleApp
  */
 angular.module('ecoleApp')
-    .controller('InscriptionCtrl', function($scope, $routeParams, restService) {
+    .controller('InscriptionCtrl', function($scope, $routeParams, restService, notificationservice) {
         var ressourceInscription = restService.getRessource('inscription');
         var ressourceEnfant = restService.getRessource('enfant');
         var ressourceEnfantSession = restService.getRessource('enfantSession');
@@ -43,9 +43,18 @@ angular.module('ecoleApp')
 
             ressourceEnfantSession.save(sessionEnfant).$promise.then(function(){
                 $scope.getEnfantInscrits();
+                notificationservice.add('Enfant inscrit', 'success');
             });
-            
-        }
+        };
+
+        $scope.deleteEnfantSession = function(enfantSession){
+            ressourceEnfantSession.delete({
+                id : enfantSession.idenfantSession
+            }).$promise.then(function(){
+                $scope.getEnfantInscrits();
+                notificationservice.add('Enfant désinscrit', 'warning');
+            })
+        };
 
         $scope.refreshEnfant = function(search) {
             ressourceEnfant.query({

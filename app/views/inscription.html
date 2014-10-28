@@ -6,6 +6,7 @@
     </li>
     <li class="active">{{activite.libelle}}</li>
 </ul>
+<div class="col-md-5">
 <div class="panel panel-info">
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -39,6 +40,8 @@
         </div>
     </div>
 </div>
+</div>
+<div class="col-md-7">
 <div class="panel panel-info">
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -55,7 +58,7 @@
                     <td>{{item.idenfant.prenom}} {{item.idenfant.nom}}</td>
                     <td>
                         <button  class="btn btn-danger btn-xs" type="button"
-                        ng-click="deleteAnneeEnfant(anneEnfant)">
+                        ng-click="deleteEnfantSession(item)">
                         <span class="glyphicon glyphicon-trash"></span>
                     </td>
                     </button>
@@ -83,4 +86,5 @@
             </tfoot>
         </table>
     </div>
+</div>
 </div>
